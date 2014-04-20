@@ -1,0 +1,11 @@
+{
+  "name": "madgalaxy",
+  "version": "0.0.0",
+  "description": "A galaxy of software solar systems and planets.",
+  "author": "MadGlory Interactive (http://madglory.com)",
+  "dependencies": {
+    "coffee-script": "1.7.1",
+    "feedparser": "0.16.6",
+    "request": "2.34.0"
+  }
+}
