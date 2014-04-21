@@ -1,7 +1,7 @@
 {
   "name": "madgalaxy",
   "version": "0.0.0",
-  "description": "A galaxy of software solar systems and planets.",
+  "description": "A galaxy of digital solar systems and planets.",
   "author": "MadGlory Interactive (http://madglory.com)",
   "dependencies": {
     "coffee-script": "1.7.1",
