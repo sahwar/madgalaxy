@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include head.ejs %>
+<link rel="canonical" href="<%=uri%>" />
+</head>
+<body>
+  <div class="container">    
+    <div class="row">
+      <div class="column col-sm-2"></div>
+      <div id="articles" class="column col-sm-8 col-md-8 col-lg-8">
+      <%- include navbar.ejs %>
+        <div class="classic-blog">
+          <% if(data.length === 0) {%>
+            <div class="post">              
+              <div class ="quick-look">
+                <h2 class="post-title text-center">- No results found -</h2>
+              </div>             
+            </div>
+          <% } %>
+          <% for(var i=0; i<data.length; i++) { %>
+            <div class="post">              
+              <div class ="quick-look">
+                <h2 class="post-title"><a href="?id=<%=data[i]._id%>"><%= data[i].title %></a></h2>
+                <div class="meta">
+                  <div class="post-id" style="display:none"><%=data[i]._id%></div>
+                  <span class="date">Posted on <span class="displayDate"><%=data[i].displayDate%></span></span>
+                  <% if(data[i].author) { %>                   
+                    <span class="author">
+                      | Author: 
+                      <a href="?searchString=<%=data[i].author%>"><%=data[i].author%></a>
+                    </span>
+                  <% } %>                  
+                  <span class="">| Source: <a href="<%= data[i].link %>">link</a>
+                  </span>                  
+                </div>
+              </div>             
+            </div>            
+            <% if(i != data.length-1 ) {%> <!--This is to prevent an hr tag at the bottom of page-->
+              <hr />
+            <% } %>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <div class="footer-offset"></div>
+  </div>
+  <%- include footer-scripts.ejs %>
+</body>
+</html>

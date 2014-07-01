@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include head.ejs %>
+  <link rel="canonical" href="<%=uri%>" />
+</head>
+<body>
+  <div class="container">
+    <%- include navbar.ejs %>
+    <div class="row">
+      <div class="column col-sm-2"></div>
+      <div id="articles" class="column col-sm-8 col-md-8 col-lg-8">
+
+        <div class="classic-blog">
+            <div class="post ">              
+              <div class ="quick-look">
+                <h2 class="post-title"><%= data[0].title %></h2>
+                <div class="meta">
+                  <div class="post-id" style="display:none"><%=data[0]._id%></div>
+                  <span class="date">Posted on <span class="displayDate"><%=data[0].displayDate%></span></span>
+                  <% if(data[0].author) { %>                   
+                    <span class="author">
+                      | Author: 
+                      <a href="?searchString=<%=data[0].author%>">
+                        <%=data[0].author%>
+                      </a>
+                    </span>
+                  <% } %>                  
+                  <span class="">| Source: <a href="<%= data[0].link %>">link</a></span>
+                  
+                  
+                </div>
+              </div>
+
+              <div class="in-depth">
+                <div
+                    class="addthis_toolbox addthis_default_style addthis_16x16_style"
+                    addthis:url="<%=data[0].link%>"
+                    addthis:title="<%=data[0].title%>"
+                  >
+                    <a class="addthis_button_facebook"></a>
+                    <a class="addthis_button_twitter"></a>
+                    <a class="addthis_button_google_plusone_share"></a>
+                    <a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style"></a>
+                </div>
+                <br/>
+                <div class="post-description"><%- data[0].content %></div>                    
+              </div>              
+            </div>
+        </div>
+        
+
+      </div>
+    </div>
+    <div class="footer-offset"></div>
+  </div>
+
+  <%- include footer-scripts.ejs %>
+</body>
+</html>

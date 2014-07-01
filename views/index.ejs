@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include head.ejs %>
+</head>
+<body>
+  <div class="container">    
+    <div class="row">
+      <div class="column col-sm-2"></div>
+      <div id="articles" class="column col-sm-8 col-md-8 col-lg-8">
+      <%- include navbar.ejs %>
+        <div class="classic-blog">
+          <% for(var i=0; i<data.length; i++) { %>
+            <div class="post">              
+              <div class ="quick-look">
+                <h2 class="post-title"><a href="?id=<%=data[i]._id%>"><%= data[i].title %></a></h2>
+                <div class="meta">
+                  <div class="post-id" style="display:none"><%=data[i]._id%></div>
+                  <span class="date">Posted on <span class="displayDate"><%=data[i].displayDate%></span></span>
+                  <% if(data[i].author && data[i].author !== 'undefined' ) { %>                   
+                    <span class="author">
+                      | Author: 
+                      <a href="?searchString=<%=data[i].author%>">
+                        <%=data[i].author%>
+                      </a>
+                    </span>
+                  <% } %>                  
+                  <span class="">| Source: <a href="<%= data[i].link %>">link</a>
+                  </span>                  
+                </div>
+              </div>             
+            </div>            
+            <% if(i != data.length-1 ) {%> <!--This is to prevent an hr tag at the bottom of page-->
+              <hr />
+            <% } %>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 text-center">            
+        <ul class="pagination">
+          <% if (page == 1) { %>
+            <li class="disabled"><a>&laquo;</a></li>
+          <%} else{ %>
+            <li><a href="?page=<%=page-1%>">&laquo;</a></li>
+          <%} %>
+          
+          <li><a href="?page=<%=page%>"><%=page%></a></li>
+          <li><a href="?page=<%=parseInt(page) + 1%>">&raquo;</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-offset"></div>
+  </div>
+  <%- include footer-scripts.ejs %>
+  
+</body>
+</html>
