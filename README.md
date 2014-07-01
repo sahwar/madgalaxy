@@ -5,13 +5,27 @@ A galaxy of software solar systems and planets.
 
 Development
 -----------
-Assuming you have Node.js installed, get started with
+To run this on your own machine*:
+
+__1. Install Dependencies__
+(assuming you've already installed Node.js and elasticsearch)
 
     npm install
 
-And run the tests with
+__2. Start the database dameon__
 
-    npm test
+    cd planet
+    mkdir data
+    mongod --dbpath data
+
+__1. Start the databse *IN NEW TAB*__
+
+    mongo
+
+__2. Run the server *IN ANOTHER NEW TAB*__
+
+    npm start
+
 
 Architecture
 ------------
