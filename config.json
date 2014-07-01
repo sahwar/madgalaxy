@@ -58,5 +58,17 @@
       "author": "Briant Ford",
       "link": "http://briantford.com/",
       "tags": ["js", "frontend-js", "angular"]
+    },
+    "Backbone Tutorials": {
+      "feed": "http://backbonetutorials.com/atom.xml",
+      "author": "Thomas Davis",
+      "link": "http://backbonetutorials.com/",
+      "tags": ["js", "frontend-js", "backbone"]
+    },
+    "Joe Zim's JavaScript Blog": {
+      "feed": "http://www.joezimjs.com/tag/backbone-js/feed/",
+      "author": "Joe Zim",
+      "link": "http://www.joezimjs.com/",
+      "tags": ["js", "frontend-js", "backbone"]
     }
 }
