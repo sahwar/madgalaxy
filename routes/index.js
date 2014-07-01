@@ -52,26 +52,15 @@ router.get('/', function(req, res) {
 });
 
 router.get( '/feed/*', function(req, res){
-  console.log('Feed param: ' + req.params[0]);
+  var paramsInArray = req.params[0].split("/");
   // Sending the feed as a response
-  feedreader.getRSS(req.params[0], function(feed){
+  feedreader.getRSS(paramsInArray, function(feed){
     // Setting the appropriate Content-Type
     res.set('Content-Type', 'text/xml');
     // Sending the feed as a response
     res.send(feed);
   });
 });
-
-router.get( '/site.rss', function(req, res){
-  // Sending the feed as a response
-  feedreader.getRSS(function(feed){
-    // Setting the appropriate Content-Type
-    res.set('Content-Type', 'text/xml');
-    // Sending the feed as a response
-    res.send(feed);
-  });
-});
-
 
 
 module.exports = router;
