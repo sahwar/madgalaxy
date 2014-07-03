@@ -51,10 +51,22 @@ router.get('/', function(req, res) {
   }
 });
 
+//the route for RSS feed built with tags
 router.get( '/feed/*', function(req, res){
-  var paramsInArray = req.params[0].split("/");
+  var paramsInArray = req.params[0].split("+");
   // Sending the feed as a response
   feedreader.getRSS(paramsInArray, function(feed){
+    // Setting the appropriate Content-Type
+    res.set('Content-Type', 'text/xml');
+    // Sending the feed as a response
+    res.send(feed);
+  });
+});
+
+//The standard RSS feed containing the 10 most recent articles
+router.get( '/feed', function(req, res){
+  // Sending the feed as a response
+  feedreader.getRSS(null, function(feed){
     // Setting the appropriate Content-Type
     res.set('Content-Type', 'text/xml');
     // Sending the feed as a response
