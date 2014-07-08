@@ -48,6 +48,13 @@ as an API.
 
 ![Mad Galaxy diagram](https://raw.githubusercontent.com/madgloryint/madgalaxy/master/docs/mad_galaxy_sketch.jpg)
 
+Use
+---
+ - the rss feed can be accessed at madgalaxy.io/feed
+ - if you would like to personalize the feed, add one or multiple tags separated by a +
+ - an example would be 'madgalaxy.io/feed/AngularJS+BackboneJS'
+ - acceptable tags are: node, npm, AngularJS, BackboneJS, EmberJS, JQuery, Ruby, Rails, PHP, Laravel, git, and CSS
+
 Meta
 ----
 Conceived and built at [MadGlory](http://madglory.com) in [Saratoga Springs, NY](https://www.google.com/maps/place/Saratoga+Springs,+NY/@43.0616419,-73.7719178,13z/).
