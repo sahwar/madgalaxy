@@ -31,7 +31,7 @@ router.get( '/api/v1/articles/*', function(req, res, next){
       res.send(err);
     }
     else{
-      res.json(JSON.stringify(posts));
+      res.json(posts);
     }
   });
 });
