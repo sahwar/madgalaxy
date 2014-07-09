@@ -45,7 +45,7 @@ router.get( '/api/v1/articles/*', function(req, res, next){
 });
 
 router.get( '/api/v1/search/*', function(req, res){
-  var searchString = req.params[0];
+  var searchString = req.params.searchString;
   console.log('the user made a search');
   console.log(searchString);
   apiV1.getArticlesBySearchString(searchString, function(err, posts){
