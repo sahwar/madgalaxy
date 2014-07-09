@@ -18,8 +18,7 @@ router.get( '/api/v1/articles/id/*', function(req, res, next){
   });
 });
 
-router.get( '/api/v1/articles', function(req, res, next){
-  console.log('request for tag');
+router.get( '/api/v1/articles/mostRecent', function(req, res, next){
   var paramsInArray = req.params[0].split("+");
   console.log(paramsInArray);
   apiV1.getMostRecentArticles(function(err, posts){
