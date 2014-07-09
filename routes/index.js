@@ -20,7 +20,6 @@ router.get( '/api/v1/articles/id/*', function(req, res, next){
 
 router.get( '/api/v1/articles/mostRecent', function(req, res, next){
   apiV1.getMostRecentArticles(function(err, posts){
-    console.log('this is a test');
     if(err){
       res.send(err);
     }
