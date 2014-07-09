@@ -31,9 +31,7 @@ router.get( '/api/v1/articles/*', function(req, res, next){
       res.send(err);
     }
     else{
-      res.render(
-        'test', {data: JSON.stringify(posts)}
-      );
+      res.json(JSON.stringify(posts));
     }
   });
 });
@@ -50,9 +48,7 @@ router.get( '/api/v1/search/*', function(req, res){
       res.send(err);
     }
     else{
-      res.render(
-        'test', {data: JSON.stringify(posts)}
-      );
+      res.json(JSON.stringify(posts));
     }
   });
 });
