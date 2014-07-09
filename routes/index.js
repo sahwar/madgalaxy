@@ -48,7 +48,7 @@ router.get( '/api/v1/search/*', function(req, res){
       res.send(err);
     }
     else{
-      res.json(JSON.stringify(posts));
+      res.json(posts);
     }
   });
 });
