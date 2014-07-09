@@ -1,78 +1,65 @@
 var express = require('express');
 var router = express.Router();
 var feedreader = require('../lib/feedreader.js');
+var apiV1 = require('../lib/api_v1.js');
 
-/* GET home page. */
-router.get('/', function(req, res) {
-
-  if(req.query.id){
-    console.log(('Here is the id of the document the user is trying to access: ' + req.query.id));
-    feedreader.getArticleById(req.query.id, function(post){
-      var article = [];
-      article[0] = post;
+//request for single article
+router.get( '/api/v1/articles/id/*', function(req, res, next){
+  console.log('request for single article');
+  var articleId = req.params[0];
+  console.log(articleId);
+  apiV1.getArticleById(articleId, function(err, post){
+    if(err){
+      res.send(err);
+    }
+    else{
       res.render(
-        'singleArticle', {data: article, uri: 'http://www.planetnodejs.com/article/'+post.title}
+        'test', {data: post}
       );
-    });
-  }
-  else if(req.query.searchString){
-    console.log(('Here is the users search: ' + req.query.searchString));
-    feedreader.getArticlesBySearchString(req.query.searchString, function(results){
-      res.render(
-        'search', {data: results, uri: 'http://www.planetnodejs.com/search/' + req.query.searchString}
-      );
-    });
-  }
-  else if(req.query.searchTag){
-    console.log('The user is simplifying results with the tag: ' + req.query.searchTag);
-    feedreader.getArticlesByTag(req.query.searchTag, function(results){
-     res.render(
-        'search', {data: results, uri: 'http://www.planetnodejs.com/tag/' + req.query.searchTag}
-      );
-    });
-  }
-  else if (req.query.page){
-    console.log('Here is the page the user is requesting: ' + req.query.page);
-    feedreader.getArticlesWithPageNum(req.query.page, function(posts) {    
-      res.render(
-        'index', {data: posts, uri: 'http://www.planetnodejs.com', page: req.query.page}
-      );
-        
-    });
-
-  }
-  else {
-    feedreader.run(function(posts) {    
-      res.render(
-        'index', {data: posts, uri: 'http://www.planetnodejs.com', page: 1}
-      );
-        
-    });
-  }
-});
-
-//the route for RSS feed built with tags
-router.get( '/feed/*', function(req, res){
-  var paramsInArray = req.params[0].split("+");
-  // Sending the feed as a response
-  feedreader.getRSS(paramsInArray, function(feed){
-    // Setting the appropriate Content-Type
-    res.set('Content-Type', 'text/xml');
-    // Sending the feed as a response
-    res.send(feed);
+    }
   });
 });
+
+//the route for tags
+router.get( '/api/v1/articles/*', function(req, res, next){
+  console.log('request for tag');
+  var paramsInArray = req.params[0].split("+");
+  console.log(paramsInArray);
+  // Sending the feed as a response
+  apiV1.getArticlesByTags(paramsInArray, function(err, posts){
+    if(err){
+      res.send(err);
+    }
+    else{
+      res.render(
+        'test', {data: JSON.stringify(posts)}
+      );
+    }
+  });
+});
+
+
+
 
 //The standard RSS feed containing the 10 most recent articles
-router.get( '/feed', function(req, res){
-  // Sending the feed as a response
-  feedreader.getRSS(null, function(feed){
-    // Setting the appropriate Content-Type
-    res.set('Content-Type', 'text/xml');
-    // Sending the feed as a response
-    res.send(feed);
+router.get( '/api/v1/search/*', function(req, res){
+  var searchString = req.params[0];
+  console.log('the user made a search');
+  apiV1.getArticlesBySearchString(searchString, function(err, posts){
+    if(err){
+      res.send(err);
+    }
+    else{
+      res.render(
+        'test', {data: JSON.stringify(posts)}
+      );
+    }
   });
 });
+
+
+
+
 
 
 module.exports = router;
