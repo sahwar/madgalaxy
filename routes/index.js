@@ -13,9 +13,7 @@ router.get( '/api/v1/articles/id/*', function(req, res, next){
       res.send(err);
     }
     else{
-      res.render(
-        'test', {data: post}
-      );
+      res.json(post);
     }
   });
 });
