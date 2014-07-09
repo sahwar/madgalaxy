@@ -18,12 +18,25 @@ router.get( '/api/v1/articles/id/*', function(req, res, next){
   });
 });
 
+router.get( '/api/v1/articles', function(req, res, next){
+  console.log('request for tag');
+  var paramsInArray = req.params[0].split("+");
+  console.log(paramsInArray);
+  apiV1.getMostRecentArticles(function(err, posts){
+    if(err){
+      res.send(err);
+    }
+    else{
+      res.json(posts);
+    }
+  });
+});
+
 //the route for tags
 router.get( '/api/v1/articles/*', function(req, res, next){
   console.log('request for tag');
   var paramsInArray = req.params[0].split("+");
   console.log(paramsInArray);
-  // Sending the feed as a response
   apiV1.getArticlesByTags(paramsInArray, function(err, posts){
     if(err){
       res.send(err);
