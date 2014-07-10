@@ -15,7 +15,7 @@ router.use(function(req, res, next) {
 });
 
 //validates the parameter pageNum
-router.param('pageNum', function(req, res, next, pageNum){
+router.param('tags', function(req, res, next, pageNum){
   console.log('seeing if pageNum is valid');
   if (typeof(req.query.pageNum) === "number"){
     pageNum = req.query.pageNum;
