@@ -46,7 +46,7 @@ router.get( '/api/v1/articles/mostRecent', function(req, res, next){
 });
 
 //request for tags
-router.get( '/api/v1/articles/:tags', function(req, res, next){
+router.get( '/api/v1/articles/tags/:tags', function(req, res, next){
   var paramsInArray = req.params.tags.split("+");
   console.log('request for articles categorized by tags: ' + paramsInArray);
   apiV1.getArticlesByTags(pageNum, paramsInArray, function(err, posts){
