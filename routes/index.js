@@ -14,26 +14,41 @@ router.use(function(req, res, next) {
   next(); 
 });
 
-//validates the parameter pageNum
-router.param('pageNum', function(req, res, next, pageNum){
-  console.log('seeing if pageNum is valid');
-  if (typeof(req.query.pageNum) === "number"){
-    pageNum = req.query.pageNum;
-    next();
-  }else{
-    res.json({'error': 'Not a valid pageNum value'});
-  }
+// //validates the parameter pageNum
+// router.param('pageNum', function(req, res, next, pageNum){
+//   console.log('seeing if pageNum is valid');
+//   if (typeof(req.query.pageNum) === "number"){
+//     pageNum = req.query.pageNum;
+//     next();
+//   }else{
+//     res.json({'error': 'Not a valid pageNum value'});
+//   }
+// });
+
+// //validates the parameter searchString
+// router.param('searchString', function(req, res, next, searchString){
+//   console.log('seeing if searchString is valid');
+//   if (typeof(req.query.searchString) === "string"){
+//     next();
+//   }else{
+//     res.json({'error': 'Not a valid pageNum value'});
+//   }
+// });  
+
+
+// route middleware to validate :name
+router.param('name', function(req, res, next, name) {
+  // do validation on name here
+  // blah blah validation
+  // log something so we know its working
+  console.log('doing name validations on ' + name);
+
+  // once validation is done save the new item in the req
+  req.name = name;
+  // go to the next thing
+  next(); 
 });
 
-//validates the parameter searchString
-router.param('searchString', function(req, res, next, searchString){
-  console.log('seeing if searchString is valid');
-  if (typeof(req.query.searchString) === "string"){
-    next();
-  }else{
-    res.json({'error': 'Not a valid pageNum value'});
-  }
-});  
 
 //request for article by id
 router.get( '/api/v1/articles/id/:article_id', function(req, res, next){
