@@ -56,11 +56,12 @@ router.get( '/api/v1/articles/:tags', function(req, res, next){
   });
 });
 
-router.get( '/api/v1/search/', function(req, res, next){
-  if(req.query.searchString){
+router.use('/api/v1/search/', function(req, res, next) {
+  if (req.query.searchString){
     next();
   }else{
-    res.json({'error': 'No search parameter'});
+    req.query.searchString = "";
+    next();
   }
 });
 
