@@ -17,7 +17,7 @@ router.use(function(req, res, next) {
 
 //request for article by id
 router.get( '/api/v1/articles/id/:article_id', function(req, res, next){
-  console.log('request for single article');
+  console.log('request for single article with an id of: ' + req.params.article_id);
   var articleId = req.params.article_id;
   apiV1.getArticleById(articleId, function(err, post){
     if(err){
@@ -31,6 +31,7 @@ router.get( '/api/v1/articles/id/:article_id', function(req, res, next){
 
 //request for most recent articles
 router.get( '/api/v1/articles/mostRecent', function(req, res, next){
+  console.log('request for most recent articles');
   apiV1.getMostRecentArticles(function(err, posts){
     if(err){
       res.send(err);
@@ -43,9 +44,8 @@ router.get( '/api/v1/articles/mostRecent', function(req, res, next){
 
 //request for tags
 router.get( '/api/v1/articles/:tags', function(req, res, next){
-  console.log('request for tag');
   var paramsInArray = req.params.tags.split("+");
-  console.log(paramsInArray);
+  console.log('request for articles categorized by tags: ' + paramsInArray);
   apiV1.getArticlesByTags(paramsInArray, function(err, posts){
     if(err){
       res.send(err);
@@ -60,13 +60,14 @@ router.use('/api/v1/search/', function(req, res, next) {
   if (req.query.searchString){
     next();
   }else{
+    console.log('ERROR - Empty searchString parameter');
     res.json({'error': 'Empty searchString parameter'});
   }
 });
 
 router.get( '/api/v1/search/', function(req, res, next){
   var searchString = req.query.searchString;
-  console.log('the user made a search for: ' + searchString);
+  console.log('search for: ' + searchString);
   apiV1.getArticlesBySearchString(searchString, function(err, posts){
     if(err){
       res.send(err);
@@ -76,10 +77,5 @@ router.get( '/api/v1/search/', function(req, res, next){
     }
   });
 });
-
-
-
-
-
 
 module.exports = router;
