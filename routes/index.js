@@ -8,15 +8,30 @@ var pageNum = 1;
 
 //Standard convention for api callback - page, variable(if applicable), callback function
 
-//this is for later when adding in pagination to planet sites
+//
 router.use(function(req, res, next) {
-  if (req.query.pageNum){
-    pageNum = req.query.pageNum;
-  }else{
-    pageNum = 1;
-  }
+  pageNum = 1; //resets the pageNum to 1 - this will be changed below with router.param('pageNum') if the user specifies a val
   next(); 
 });
+
+//validates the parameter pageNum
+router.param('pageNum', function(req, res, next, pageNum){
+  if (typeof(req.query.pageNum) === "number"){
+    pageNum = req.query.pageNum;
+    next();
+  }else{
+    res.json({'error': 'Not a valid pageNum value'});
+  }
+});
+
+//validates the parameter searchString
+router.param('searchString', function(req, res, next, searchString){
+  if (typeof(req.query.searchString) === "string"){
+    next();
+  }else{
+    res.json({'error': 'Not a valid pageNum value'});
+  }
+});  
 
 //request for article by id
 router.get( '/api/v1/articles/id/:article_id', function(req, res, next){
