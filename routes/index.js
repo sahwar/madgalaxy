@@ -14,7 +14,7 @@ router.use(function(req, res, next) {
 
   //validating pageNum
   if(req.query.pageNum){
-    console.log('seeing if pageNum is valid');
+    console.log('seeing if pageNum is valid: ' + typeof(req.query.pageNum));
     if (typeof(req.query.pageNum) === "number"){
       req.pageNum = req.query.pageNum;
       next();
