@@ -4,21 +4,21 @@ var feedreader = require('../lib/feedreader.js');
 var apiV1 = require('../lib/api_v1.js');
 var pageNum = 1;
 // route middleware that will happen on every request
+
+//this is for later when adding in pagination to planet sites
 router.use(function(req, res, next) {
   if (req.query.pageNum){
     pageNum = req.query.pageNum;
   }else{
     pageNum = 1;
   }
-  console.log(pageNum);
   next(); 
 });
 
-//request for single article
+//request for article by id
 router.get( '/api/v1/articles/id/:article_id', function(req, res, next){
   console.log('request for single article');
   var articleId = req.params.article_id;
-  console.log(articleId);
   apiV1.getArticleById(articleId, function(err, post){
     if(err){
       res.send(err);
@@ -29,6 +29,7 @@ router.get( '/api/v1/articles/id/:article_id', function(req, res, next){
   });
 });
 
+//request for most recent articles
 router.get( '/api/v1/articles/mostRecent', function(req, res, next){
   apiV1.getMostRecentArticles(function(err, posts){
     if(err){
@@ -40,10 +41,10 @@ router.get( '/api/v1/articles/mostRecent', function(req, res, next){
   });
 });
 
-//the route for tags
-router.get( '/api/v1/articles/*', function(req, res, next){
+//request for tags
+router.get( '/api/v1/articles/:tags', function(req, res, next){
   console.log('request for tag');
-  var paramsInArray = req.params[0].split("+");
+  var paramsInArray = req.params.tags.split("+");
   console.log(paramsInArray);
   apiV1.getArticlesByTags(paramsInArray, function(err, posts){
     if(err){
