@@ -56,7 +56,7 @@ router.get( '/api/v1/articles/:tags', function(req, res, next){
   });
 });
 
-router.get( '/api/v1/search/*', function(req, res){
+router.get( '/api/v1/search/?searchString', function(req, res){
   var searchString = req.query.searchString;
   console.log('the user made a search for: ' + searchString);
   apiV1.getArticlesBySearchString(searchString, function(err, posts){
