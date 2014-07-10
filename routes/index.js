@@ -60,8 +60,7 @@ router.use('/api/v1/search/', function(req, res, next) {
   if (req.query.searchString){
     next();
   }else{
-    req.query.searchString = "";
-    next();
+    res.json({'error': 'Empty searchString parameter'});
   }
 });
 
