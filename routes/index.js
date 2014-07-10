@@ -14,26 +14,12 @@ router.use(function(req, res, next) {
 
   //validating pageNum
   if(req.query.pageNum){
-    console.log('seeing if pageNum is valid: ' + typeof(req.query.pageNum));
-    if (typeof(req.query.pageNum) === "number"){
       req.pageNum = req.query.pageNum;
-      next();
-    }else{
-      res.json({'error': 'Not a valid pageNum value'});
-      return;
-    }
   }
-
+                                             //make this actually validate
   //validating searchString
   if(req.query.searchString){
-    console.log('seeing if searchString is valid');
-    if (typeof(req.query.searchString) === "string"){
       req.searchString = req.query.searchString;
-      next();
-    }else{
-      res.json({'error': 'Not a valid searchString value'});
-      return;
-    }
   }
 
   next(); 
