@@ -98,4 +98,16 @@ router.get( '/api/v1/search/', function(req, res, next){
   });
 });
 
+router.get( '/api/v1/currentTags', function(req, res, next){
+  console.log('getting currentTags');
+  apiV1.getCurrentTags(req.pageNum, req.searchString, function(err, posts){
+    if(err){
+      res.send(err);
+    }
+    else{
+      res.json(posts);
+    }
+  });
+});
+
 module.exports = router;
