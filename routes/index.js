@@ -52,7 +52,7 @@ router.get( '/api/v1/articles/mostRecent', function(req, res, next){
 });
 
 //request for untagged articles
-router.get( '/api/v1/articles/tags/untagged/', function(req, res, next){
+router.get( '/api/v1/articles/tags/untagged', function(req, res, next){
   apiV1.getUntaggedArticles(req.pageNum, function(err, posts){
     if(err){
       res.send(err);
