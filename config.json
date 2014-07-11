@@ -1,74 +1,227 @@
 {
-    "mikeal": {
-      "feed": "http://www.mikealrogers.com/site.rss",
-      "author": "Mikeal Rogers",
-      "link": "http://www.mikealrogers.com",
-      "tags": [ "js", "backend-js", "node"]
-    },
-    "nodejitsu": {
-      "feed": "http://blog.nodejitsu.com/feed.xml",
-      "author": "Ninjas",
-      "link": "http://blog.nodejitsu.com",
-      "tags": [ "js", "backend-js", "node"]
-    },
-    "node knockout": {
-      "feed": "http://blog.nodeknockout.com/rss",
-      "author": "Node KO",
-      "link": "http://blog.nodeknockout.com/",
-      "tags": [ "js", "backend-js", "node"]
-    },
-    "node blog": {
-      "feed": "http://blog.nodejs.org/feed/",
-      "author": "Joyent",
-      "link": "http://blog.nodejs.org/",
-      "tags": [ "js", "backend-js", "node"]
-    },
-    "AngularJS Daily": {
-      "feed": "http://www.angularjsdaily.com/~api/papers/b172848e-2741-468a-b631-2a6fb575b197/rss",
-      "author": "AngularJS Daily",
-      "link": "http://www.angularjsdaily.com/",
-      "tags": ["js", "frontend-js", "angular"]
-    },
-    "Angular-tips": {
-      "feed": "http://angular-tips.com/atom.xml",
-      "author": "Angular-Tips",
-      "link": "http://angular-tips.com/",
-      "tags": ["js", "frontend-js", "angular"]
-    },
-    "Revolunet Blog": {
-      "feed": "http://blog.revolunet.com/atom.xml",
-      "author": "Revolunet Blog",
-      "link": "http://blog.revolunet.com/",
-      "tags": ["js", "frontend-js", "angular"]
-    },
-    "YearOfMoo": {
-      "feed": "http://yearofmoo.com/feed.xml",
-      "author": "Year of Moo",
-      "link": "http://yearofmoo.com/",
-      "tags": ["js", "frontend-js", "angular"]
-    },
-    "Lullabot": {
-      "feed": "http://lullabot.com/rss.xml",
-      "author": "lullabot",
-      "link": "http://lullabot.com/",
-      "tags": ["js", "frontend-js", "angular"]
-    },
-    "BriantFord": {
-      "feed": "http://briantford.com/blog.rss",
-      "author": "Briant Ford",
-      "link": "http://briantford.com/",
-      "tags": ["js", "frontend-js", "angular"]
-    },
-    "Backbone Tutorials": {
-      "feed": "http://backbonetutorials.com/atom.xml",
-      "author": "Thomas Davis",
-      "link": "http://backbonetutorials.com/",
-      "tags": ["js", "frontend-js", "backbone"]
-    },
-    "Joe Zim's JavaScript Blog": {
-      "feed": "http://www.joezimjs.com/tag/backbone-js/feed/",
-      "author": "Joe Zim",
-      "link": "http://www.joezimjs.com/",
-      "tags": ["js", "frontend-js", "backbone"]
-    }
+      "AngularJS Daily": {
+        "feed": "http://www.angularjsdaily.com/~api/papers/b172848e-2741-468a-b631-2a6fb575b197/rss",
+        "author": "AngularJS Daily",
+        "link": "http://www.angularjsdaily.com/"
+      },
+      "Angular-tips": {
+        "feed": "http://angular-tips.com/atom.xml",
+        "author": "Angular-Tips",
+        "link": "http://angular-tips.com/"
+      },
+      "Revolunet Blog": {
+        "feed": "http://blog.revolunet.com/atom.xml",
+        "author": "Revolunet Blog",
+        "link": "http://blog.revolunet.com/"
+      },
+      "YearOfMoo": {
+        "feed": "http://yearofmoo.com/feed.xml",
+        "author": "Year of Moo",
+        "link": "http://yearofmoo.com/"
+      },
+      "Lullabot": {
+        "feed": "http://lullabot.com/rss.xml",
+        "author": "lullabot",
+        "link": "http://lullabot.com/"
+      },
+      "BriantFord": {
+        "feed": "http://briantford.com/blog.rss",
+        "author": "Briant Ford",
+        "link": "http://briantford.com/"
+      },
+      "Backbone Tutorials": {
+        "feed": "http://backbonetutorials.com/atom.xml",
+        "author": "Thomas Davis",
+        "link": "http://backbonetutorials.com/"
+      },
+      "StackOverflow Backbone feed": {
+        "feed": "https://stackoverflow.com/feeds/tag?tagnames=backbone.js&sort=votes",
+        "author": "StackOverflow",
+        "link": "https://stackoverflow.com/questions/tagged/backbone.js"
+      },
+      "ShineTech Blog": {
+        "feed": "http://blog.shinetech.com/feed/",
+        "author": "Shine Technologies",
+        "link": "http://blog.shinetech.com/"
+      },
+      "Josh Bohde Blog": {
+        "feed": "http://joshbohde.com/blog/atom.xml",
+        "author": "Josh Bohde",
+        "link": "http://joshbohde.com/blog/"
+      },
+      "EmberJS Blog": {
+        "feed": "http://emberjs.com/blog/feed",
+        "author": "Ember JS",
+        "link": "http://emberjs.com/blog"
+      },
+      "Ghost Blog": {
+        "feed": "http://blog.ghost.org/rss/",
+        "author": "Ghost Blog",
+        "link": "http://blog.ghost.org"
+      },
+      "Sitepoint": {
+        "feed": "http://www.sitepoint.com/feed/",
+        "author": "SitePoint",
+        "link": "http://www.sitepoint.com/"
+      },
+      "Evil Trout Blog": {
+        "feed": "http://eviltrout.com/feed.xml",
+        "author": "Robin Ward",
+        "link": "http://eviltrout.com"
+      },
+      "Los Techies": {
+        "feed": "http://lostechies.com/MainFeed",
+        "author": "Los Techies",
+        "link": "http://lostechies.com/"
+      },
+      "Nebulab": {
+        "feed": "http://nebulab.it/blog/feed.xml",
+        "author": "Nebulab",
+        "link": "http://nebulab.it/blog"
+      },
+      "Jquery Blog": {
+        "feed": "http://feeds.feedburner.com/jquery/",
+        "author": "Jquery",
+        "link": "http://blog.jquery.com/"
+      },
+      "Jquery Blog": {
+        "feed": "http://www.learningjquery.com/feed",
+        "author": "Learning JQuery",
+        "link": "http://www.learningjquery.com/"
+      },
+      "JQuery UI Blog": {
+        "feed": "http://blog.jqueryui.com/feed/",
+        "author": "JQuery UI",
+        "link": "http://jqueryui.com/"
+      },
+      "JQuery Style": {
+        "feed": "http://feeds.feedburner.com/JqueryStyleAll",
+        "author": "JQuery Style",
+        "link": "http://jquerystyle.com/index.php"
+      },
+      "JQuery By Example": {
+        "feed": "http://feeds.feedburner.com/JqueryByExample",
+        "author": "JqueryByExample",
+        "link": "http://www.jquerybyexample.net/"
+      },
+      "AndyOsmani": {
+        "feed": "http://feeds.feedburner.com/addyosmani",
+        "author": "Andy Osmani",
+        "link": "http://addyosmani.com/blog/"
+      },
+      "mikeal": {
+        "feed": "http://www.mikealrogers.com/site.rss",
+        "author": "Mikeal Rogers",
+        "link": "http://www.mikealrogers.com"
+      },
+      "nodejitsu": {
+        "feed": "http://blog.nodejitsu.com/feed.xml",
+        "author": "Ninjas",
+        "link": "http://blog.nodejitsu.com"
+      },
+      "node knockout": {
+        "feed": "http://blog.nodeknockout.com/rss",
+        "author": "Node KO",
+        "link": "http://blog.nodeknockout.com/"
+      },
+      "node blog": {
+        "feed": "http://blog.nodejs.org/feed/",
+        "author": "Joyent",
+        "link": "http://blog.nodejs.org/"
+      },
+      "Ted Leung": {
+        "feed": "http://www.sauria.com/blog/feed/",
+        "author": "Ted Leung",
+        "link": "http://www.sauria.com/blog/"
+      },
+      "Bocoup": {
+        "feed": "http://weblog.bocoup.com/feed",
+        "author": "Bocoup",
+        "link": "http://weblog.bocoup.com"
+      },
+      "Metaduck": {
+        "feed": "http://metaduck.com/tagged/node.js/rss",
+        "author": "Pedro Teixeira",
+        "link": "http://metaduck.com/"
+      },
+      "NodeConf Videos": {
+        "feed": "http://blip.tv/rss/bookmarks/234675",
+        "author": "NodeConf",
+        "link": "http://blip.tv/jsconf"
+      },
+      "Labnotes": {
+        "feed": "http://labnotes.org/feed/atom/",
+        "author": "Assaf Arkin",
+        "link": "http://labnotes.org/"
+      },
+      "CurlyBraceCast": {
+        "feed": "http://www.curlybracecast.com/itunes.rss",
+        "author": "Mikeal Rogers",
+        "link": "http://www.curlybracecast.com/"
+      },
+      "Node Up": {
+        "feed": "http://feeds.feedburner.com/NodeUp",
+        "author": "Node Up",
+        "link": "http://nodeup.com/"
+      },
+      "Shape Shed": {
+        "feed": "http://feeds.shapeshed.com/shapeshed",
+        "author": "George Ornbo",
+        "link": "http://shapeshed.com/"
+      },
+      "catonmat": {
+        "feed": "http://www.catonmat.net/feed/",
+        "author": "Peteris Krumins",
+        "link": "http://www.catonmat.net"
+      },
+      "Asynchronous Thoughts": {
+        "feed": "http://robkuz-blog.blogspot.com/feeds/posts/default",
+        "author": "robert kuzelj",
+        "link": "http://robkuz-blog.blogspot.com/"
+      },
+      "Development Seed": {
+        "feed": "http://developmentseed.org/blog/nodejs.rss/",
+        "author": "Development Seed",
+        "link": "http://developmentseed.org"
+      },
+      "The Blaggin' Wraith": {
+        "feed": "http://blog.wraithan.net/feeds/posts/default/-/nodejs",
+        "author": "Wraithan",
+        "link": "http://blog.wraithan.net/"
+      },
+      "NodeJS News": {
+        "feed": "http://www.nodejs-news.com/feed/",
+        "author": "Vincent RABAH",
+        "link": "http://www.nodejs-news.com/"
+      },
+      "Estisia Development Blog": {
+        "feed": "http://dev.estisia.com/tag/nodejs/feed/",
+        "author": "Tucsok, Bika",
+        "link": "http://dev.estisia.com"
+      },
+      "Createweb Blog": {
+        "feed": " http://www.createweb.be/wordpress/?tag=node-js&feed=rss2",
+        "author": "Elias Lecomte",
+        "link": "http://www.createweb.be/wordpress/?tag=node-js"
+      },
+      "Max Ogden": {
+        "feed": "http://maxogden.com/rss",
+        "author": "Max Ogden",
+        "link": "http://maxogden.com"
+      },
+      "Feeding the Cloud": {
+        "feed": "http://feeding.cloud.geek.nz/feeds/posts/default/-/nodejs",
+        "author": "Francois Marier",
+        "link": "http://feeding.cloud.geek.nz/"
+      },
+      "StrongLoop": {
+        "feed": "http://strongloop.com/feed/",
+        "author": "Strong Loop",
+        "link": "strongloop.com"
+      },
+      "Joyent Blog": {
+        "feed": "http://www.joyent.com/blog/feed",
+        "author": "Joyent",
+        "link": "http://www.joyent.com/blog"
+      }
 }
