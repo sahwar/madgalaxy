@@ -89,8 +89,6 @@ router.use('/api/v1/search/', function(req, res, next) {
 router.get( '/api/v1/search/', function(req, res, next){
   console.log('search for: ' + req.searchString);
   apiV1.getArticlesBySearchString(req.pageNum, req.searchString, function(err, posts){
-    console.log('log from inside search callback');
-    console.log(posts);
     if(err){
       res.send(err);
     }

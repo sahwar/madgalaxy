@@ -27,7 +27,8 @@
     "elasticsearch": "*",
     "colors": "*",
     "rss": "*",
-    "natural": "*"
+    "natural": "*",
+    "mongoose-text-search": "*"
   },
   "devDependencies": {
     "mocha": "~1.18.2",
