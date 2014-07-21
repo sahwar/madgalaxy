@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "A galaxy of digital solar systems and planets.",
   "author": "MadGlory Interactive (http://madglory.com)",
+  "repository": "https://github.com/madgloryint/madgalaxy",
   "scripts": {
     "start": "./node_modules/.bin/supervisor ./bin/www",
     "test": "./node_modules/.bin/mocha"
@@ -21,14 +22,13 @@
     "request": "*",
     "supervisor": "^0.6.0",
     "lodash": "^2.4.1",
-    "mongodb": "*",
-    "mongoose": "*",
+    "mongodb": "1.4.7",
+    "mongoose": ">=3.8.9",
     "mongoosastic": "*",
     "elasticsearch": "*",
     "colors": "*",
     "rss": "*",
-    "natural": "*",
-    "mongoose-text-search": "*"
+    "natural": "*"
   },
   "devDependencies": {
     "mocha": "~1.18.2",
