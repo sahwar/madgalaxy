@@ -25,7 +25,7 @@ router.use(function(req, res, next) {
 });
 
 //request for article by id
-router.get( '/api/v1/articles/id/:article_id/', function(req, res, next){
+router.get( '/api/v1/articles/id/:article_id', function(req, res, next){
   console.log('request for single article with an id of: ' + req.params.article_id);
   var articleId = req.params.article_id;
   apiV1.getArticleById(req.pageNum, articleId, function(err, post){
