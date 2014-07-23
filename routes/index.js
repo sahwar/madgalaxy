@@ -37,18 +37,6 @@ router.get('/api/v1/articles/id/:article_id', function (req, res, next) {
     });
 });
 
-//request for most recent articles
-router.get('/api/v1/articles/mostRecent', function (req, res, next) {
-    console.log('request for most recent articles');
-    apiV1.getMostRecentArticles(req.pageNum, function (err, posts) {
-        if (err) {
-            res.send(err);
-        } else {
-            res.json(posts);
-        }
-    });
-});
-
 //request for untagged articles
 router.get('/api/v1/articles/tags/untagged', function (req, res, next) {
     apiV1.getUntaggedArticles(req.pageNum, function (err, posts) {
@@ -60,7 +48,7 @@ router.get('/api/v1/articles/tags/untagged', function (req, res, next) {
     });
 });
 
-//request for tags
+//request for articles with tags: 
 router.get('/api/v1/articles/tags/:tags', function (req, res, next) {
     var paramsInArray = req.params.tags.split("+");
     console.log('request for articles categorized by tags: ' + paramsInArray);
@@ -81,6 +69,18 @@ router.get('/api/v1/articles/tags', function (req, res, next) {
             res.send(err);
         } else {
             res.json(tags);
+        }
+    });
+});
+
+//request for most recent articles
+router.get('/api/v1/articles', function (req, res, next) {
+    console.log('request for most recent articles');
+    apiV1.getMostRecentArticles(req.pageNum, function (err, posts) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(posts);
         }
     });
 });
