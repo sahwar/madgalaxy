@@ -20,6 +20,11 @@ router.use(function (req, res, next) {
     if (req.query.searchString) {
         req.searchString = req.query.searchString;
     }
+    //make this actually validate
+    //validating searchString
+    if (req.query.searchTag) {
+        req.searchTag = req.query.searchTag;
+    }
 
     next();
 });
@@ -98,7 +103,7 @@ router.use('/api/v1/search/', function (req, res, next) {
 
 router.get('/api/v1/search/', function (req, res, next) {
     console.log('search for: ' + req.searchString);
-    apiV1.getArticlesBySearchString(req.pageNum, req.searchString, function (err, posts) {
+    apiV1.getArticlesBySearchString(req.pageNum, req.searchString, req.searchTag, function (err, posts) {
         if (err) {
             res.send(err);
         } else {
