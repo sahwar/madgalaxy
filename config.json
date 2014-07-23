@@ -227,30 +227,23 @@
     }
   },
   "tags": {
-    "node": ["node", "NodeJS", "Node", "nodeJS", "NodeConf"],
-    "npm": ["npm", "NPM"],
-    "AngularJS": ["AngularJS", "angular"],
-    "BackBoneJS": ["BackboneJS", "Backbone", "backbone"],
-    "EmberJS": ["EmberJS", "ember.js", "Ember.js", "ember"],
-    "JQuery": ["JQuery", "jquery"],
-    "Ruby": ["Ruby", "ruby"],
-    "RoR": ["RubyOnRails", "RoR", "ruby-on-rails"],
-    "PHP": ["php", "PHP"],
-    "Laravel": {
-
-    },
-    "git": {
-
-    },
-    "CSS": {
-
-    },
-    "JavaScript": {
-
-    },
-    "HTML": {
-
-    }
+    "node": ["node", "nodejs", "nodeconf", "async"],
+    "npm": ["npm"],
+    "angularjs": ["angular", "angularjs"],
+    "backbonejs": ["backbone", "backbonejs"],
+    "underscorejs": ["underscore", "underscorejs"],
+    "emberjs": ["emberjs", "ember"],
+    "jquery": ["jquery", "jQuery"],
+    "ruby": ["ruby"],
+    "ruby-on-rails": ["rubyonrails", "ror", "ruby-on-rails", "rails"],
+    "php": ["php"],
+    "garavel": ["Laravel", "laravel"],
+    "git": ["git", "git", "github"],
+    "css": ["css", "css3"],
+    "javascript": ["js", "javascript", "jsconf"],
+    "html": ["html", "html5"],
+    "general": ["weekend"],
+    "api": ["api", "rest", "rest-api"]
   }
 
 }

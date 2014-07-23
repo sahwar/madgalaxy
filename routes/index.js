@@ -73,6 +73,18 @@ router.get('/api/v1/articles/tags/:tags', function (req, res, next) {
     });
 });
 
+//request for usable tags
+router.get('/api/v1/articles/tags', function (req, res, next) {
+    console.log('request for most recent tags');
+    apiV1.getCurrentTags(req.pageNum, function (err, tags) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(tags);
+        }
+    });
+});
+
 router.use('/api/v1/search/', function (req, res, next) {
     if (req.searchString) {
         next();
@@ -95,15 +107,5 @@ router.get('/api/v1/search/', function (req, res, next) {
     });
 });
 
-router.get('/api/v1/currentTags', function (req, res, next) {
-    console.log('getting currentTags');
-    apiV1.getCurrentTags(req.pageNum, req.searchString, function (err, posts) {
-        if (err) {
-            res.send(err);
-        } else {
-            res.json(posts);
-        }
-    });
-});
 
 module.exports = router;
