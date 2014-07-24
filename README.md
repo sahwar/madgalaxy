@@ -46,7 +46,77 @@ certain tags emitted from the Supernova. Planets may also directly query the
 CouchDB database for documents it might be interested in, which is just as good
 as an API.
 
-![Mad Galaxy diagram](https://raw.githubusercontent.com/madgloryint/madgalaxy/master/docs/mad_galaxy_sketch.jpg)
+![ Mad Galaxy diagram ](https://raw.githubusercontent.com/madgloryint/madgalaxy/master/docs/mad_galaxy_sketch.jpg)
+
+Use
+---
+--Articles
+
+    GET /api/v1/articles - retreives the latest articles
+        acceptable parameters:
+            ?pageNum - Page number. 
+                       Defaults to 1. 
+                       Not required.
+
+
+    GET /ap/v1/articles/id/:article_id - retreives article by id
+        acceptable parameters:
+            :article_id - _id of article. 
+                          Required.
+
+
+    GET /api/v1/articles/tags/:tags - Finds all articles with :tags (inclusive, not exclusive)
+        acceptable parameters:
+            :tags - A list of tags separated by +'s (example: angularjs+node). 
+                    Usable tags can be found at /api/v1/articles/tags.
+                    Required.
+            ?pageNum - Page number. 
+                       Defaults to 1. 
+                       Not required.
+
+
+    GET /api/v1/articles/tags/untagged - Finds all articles where article.tags = []
+        acceptable parameters:
+            ?pageNum - Page number. 
+                       Defaults to 1. 
+                       Not required.
+            ?pageNum - Page number. 
+                       Defaults to 1. 
+                       Not required.f
+
+
+--Tags
+
+    GET /api/v1/tags - Gets a list of 1st level tags and 2nd level tags
+        No parameters
+
+
+    DELETE /api/v1/tags - Deletes tag 
+        acceptable parameters:
+            tag - The tag to be deleted.
+                  Required.
+
+
+    PUT /api/v1/tags - Creates a tag
+        acceptable parameters:
+            tag - The 1st level tag to be created.
+                  Required.
+            tag_varients - 2nd level tags to be associated with 1st level tag
+                  Required
+
+
+--Search
+
+    GET /api/v1/search/ - Searches for articles with ?searchString and ?searchTag
+        acceptable parameters:
+            ?searchString - Full text search string.
+                            Required.
+            ?searchTag - Filters above search with tags separated by +'s (inclusive, not exclusive)
+                         Not Required.
+            ?pageNum - Page number. 
+                       Defaults to 1. 
+                       Not required.
+
 
 
 Meta
