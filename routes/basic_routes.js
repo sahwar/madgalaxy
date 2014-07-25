@@ -11,7 +11,7 @@ var debug = require('debug')('router:basic');
 router.use(function (req, res, next) {
     next();
 });
-router.get('', function (req, res, next){
+router.get('', function (req, res, next){ //this route is for www.madglalaxy.io/
     res.json({'200':'You have reached madgalaxy.io - api is available at /api/v1/'});
 });
 
