@@ -143,7 +143,7 @@ in package.json
 If a debug group is included in the DEBUG variable, it is logged to the console, and if it is excluded,
 it is not logged to the console.
 
-Here is some more documentation od debug: https://github.com/visionmedia/debug
+Here is some more documentation on debug: https://github.com/visionmedia/debug
 
 
 
