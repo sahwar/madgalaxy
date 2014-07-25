@@ -30,12 +30,12 @@ __2. Run the server *IN ANOTHER NEW TAB*__
 Architecture
 ------------
 Mad Galaxy is a network of content aggregation sites called 'planets'. Each
-planet site covers a specific topic like Ruby on Rails, Responsive Web Design,
-Angular.js, or Typography, for example.
+planet site covers a specific topic like Ruby on Rails, BackBone.js,
+Angular.js, or Node.js, for example.
 
 At the core is a content aggregator called Supernova. It reads from a list of
-content sources, like blogs, Twitter feeds, or Dribble, and fetches content
-from each source on a specified interval. It then emits content items from each
+content sources, like blogs (and hopefully in the future: twitter feeds, dribble feeds, etc)
+and fetches content from each source on a specified interval. It then emits content items from each
 source internally where each item is parsed, classified, tagged, and possibly
 scored.
 
@@ -52,14 +52,14 @@ Use
 ---
 --Articles
 
-    GET /api/v1/articles - retreives the latest articles
+    GET /api/v1/articles - Retreives the latest articles
         parameters:
             ?pageNum - Page number. 
                        Defaults to 1. 
                        Not required.
 
 
-    GET /ap/v1/articles/id/:article_id - retreives article by id
+    GET /ap/v1/articles/id/:article_id - Retreives article by id
         parameters:
             :article_id - _id of article. 
                           Required.
