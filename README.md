@@ -123,7 +123,7 @@ application that can be selectivley turned on or off.
 Here are is a list of all current debug groups:
 
 - feedreader:feedparser
-- feedreader:post_saver
+- feedreader:articleParser
 - feedreader:elasticsearch
 - api_v1
 - router:api_v1

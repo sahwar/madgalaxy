@@ -3,10 +3,10 @@ var router = express.Router();
 var feedreader = require('../lib/feedreader.js');
 var apiV1 = require('../lib/api_v1.js');
 var pageNum = 1; // this is multiplied by 'perPage', a variable defined in api...js, to determine how many articles are skipped
-var debug = require('debug')('router');
+var debug = require('debug')('router:api_v1');
 
 
-//Standard convention for api callback - page, variables(if applicable), callback function
+//Standard convention for api callback - page, variables(if applicable), callback(err, result)
 
 /**-----------------------------------------------------------------------------------------
     Variable validation
@@ -75,6 +75,19 @@ router.get('/articles/tags/:tags', function (req, res, next) {
     });
 });
 
+/**-----------------------------------------------------------------------------------------
+    GET articles
+ -----------------------------------------------------------------------------------------*/
+router.get('/articles', function (req, res, next) {
+    debug('request for most recent articles');
+    apiV1.getMostRecentArticles(req.pageNum, function (err, posts) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(posts);
+        }
+    });
+});
 
 /**-----------------------------------------------------------------------------------------
     REST tags
@@ -139,50 +152,32 @@ router.route('/tags')
         });
     });
 
-
-/**-----------------------------------------------------------------------------------------
-    GET articles
- -----------------------------------------------------------------------------------------*/
-router.get('/articles', function (req, res, next) {
-    debug('request for most recent articles');
-    apiV1.getMostRecentArticles(req.pageNum, function (err, posts) {
-        if (err) {
-            res.send(err);
-        } else {
-            res.json(posts);
-        }
-    });
-});
-
-
-
-/**-----------------------------------------------------------------------------------------
-    SearchString validation
- -----------------------------------------------------------------------------------------*/
-router.use('/search/', function (req, res, next) {
-    if (req.searchString) {
-        next();
-    } else {
-        debug('ERROR - Empty searchString parameter');
-        res.json({
-            'error': 'Empty searchString parameter'
-        });
-    }
-});
-
 /**-----------------------------------------------------------------------------------------
     GET search results
  -----------------------------------------------------------------------------------------*/
-router.get('/search/', function (req, res, next) {
-    debug('search for: ' + req.searchString + req.pageNum);
-    apiV1.getArticlesBySearchString(req.pageNum, req.searchString, req.query.searchTag, function (err, posts) {
-        if (err) {
-            res.send(err);
+router.route('/search')
+    //validates search string
+    .all(function (req, res, next) {
+        if (req.searchString) {
+            next();
         } else {
-            res.json(posts);
+            debug('ERROR - Empty searchString parameter');
+            res.json({
+                'error': 'Empty searchString parameter'
+            });
         }
+    })
+
+    .get(function (req, res, next) {
+        debug('search for: ' + req.searchString + req.pageNum);
+        apiV1.getArticlesBySearchString(req.pageNum, req.searchString, req.query.searchTag, function (err, posts) {
+            if (err) {
+                res.send(err);
+            } else {
+                res.json(posts);
+            }
+        });
     });
-});
 
 
 module.exports = router;

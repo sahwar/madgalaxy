@@ -1,7 +1,7 @@
 {
   "name": "madgalaxy",
   "version": "0.0.0",
-  "description": "A galaxy of digital solar systems and planets.",
+  "description": "An api, organized like a galaxy, that aggregates, concatenates, and emits feeds.",
   "author": "MadGlory Interactive (http://madglory.com)",
   "repository": "https://github.com/madgloryint/madgalaxy",
   "scripts": {
@@ -26,9 +26,7 @@
     "mongoose": ">=3.8.9",
     "mongoosastic": "*",
     "elasticsearch": "*",
-    "colors": "*",
-    "rss": "*",
-    "natural": "*"
+    "rss": "*"
   },
   "devDependencies": {
     "mocha": "~1.18.2",
