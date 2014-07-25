@@ -40,7 +40,7 @@ source internally where each item is parsed, classified, tagged, and possibly
 scored.
 
 After that, content is categorized, indexed, and stored into MongoDB + ElasticSearch. 
-Each planet site can subscribe to certain tags emitted from the Supernova, make a query for full-text-search, 
+Each planet site can subscribe to certain tags emitted from the Supernova and make a query for full-text-search, 
 along with many other things. Basically, the supernova is an API, and each planet can make requests to it.
 
 ![ Mad Galaxy diagram ](https://raw.githubusercontent.com/madgloryint/madgalaxy/master/docs/mad_galaxy_sketch.jpg)
