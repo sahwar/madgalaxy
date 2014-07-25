@@ -25,11 +25,6 @@
             "author": "lullabot",
             "link": "http://lullabot.com/"
         },
-        "BriantFord": {
-            "feed": "http://briantford.com/blog.rss",
-            "author": "Briant Ford",
-            "link": "http://briantford.com/"
-        },
         "Backbone Tutorials": {
             "feed": "http://backbonetutorials.com/atom.xml",
             "author": "Thomas Davis",
@@ -55,11 +50,6 @@
             "author": "Ember JS",
             "link": "http://emberjs.com/blog"
         },
-        "Ghost Blog": {
-            "feed": "http://blog.ghost.org/rss/",
-            "author": "Ghost Blog",
-            "link": "http://blog.ghost.org"
-        },
         "Sitepoint": {
             "feed": "http://www.sitepoint.com/feed/",
             "author": "SitePoint",
@@ -71,7 +61,7 @@
             "link": "http://eviltrout.com"
         },
         "Los Techies": {
-            "feed": "http://lostechies.com/MainFeed",
+            "feed": "http://feeds.feedburner.com/LosTechies",
             "author": "Los Techies",
             "link": "http://lostechies.com/"
         },
@@ -105,11 +95,6 @@
             "author": "Andy Osmani",
             "link": "http://addyosmani.com/blog/"
         },
-        "mikeal": {
-            "feed": "http://www.mikealrogers.com/site.rss",
-            "author": "Mikeal Rogers",
-            "link": "http://www.mikealrogers.com"
-        },
         "nodejitsu": {
             "feed": "http://blog.nodejitsu.com/feed.xml",
             "author": "Ninjas",
@@ -134,11 +119,6 @@
             "feed": "http://weblog.bocoup.com/feed",
             "author": "Bocoup",
             "link": "http://weblog.bocoup.com"
-        },
-        "Metaduck": {
-            "feed": "http://metaduck.com/tagged/node.js/rss",
-            "author": "Pedro Teixeira",
-            "link": "http://metaduck.com/"
         },
         "NodeConf Videos": {
             "feed": "http://blip.tv/rss/bookmarks/234675",
@@ -179,11 +159,6 @@
             "feed": "http://developmentseed.org/blog/nodejs.rss/",
             "author": "Development Seed",
             "link": "http://developmentseed.org"
-        },
-        "The Blaggin' Wraith": {
-            "feed": "http://blog.wraithan.net/feeds/posts/default/-/nodejs",
-            "author": "Wraithan",
-            "link": "http://blog.wraithan.net/"
         },
         "NodeJS News": {
             "feed": "http://www.nodejs-news.com/feed/",
