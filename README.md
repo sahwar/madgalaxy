@@ -1,7 +1,7 @@
 Mad Galaxy
 ==========
 
-A galaxy of software solar systems and planets.
+An api that aggregates, categorizes, and emits feeds
 
 Development
 -----------
