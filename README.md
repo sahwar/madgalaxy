@@ -39,12 +39,9 @@ and fetches content from each source on a specified interval. It then emits cont
 source internally where each item is parsed, classified, tagged, and possibly
 scored.
 
-After that, content is emitted out to the planet sites, as well as persisted to
-storage for query later (CouchDB is pretty good for that). Each planet site can
-handle and display incoming content however it wishes, and can subscribe to
-certain tags emitted from the Supernova. Planets may also directly query the
-CouchDB database for documents it might be interested in, which is just as good
-as an API.
+After that, content is categorized, indexed, and stored into MongDB + ElasticSearch. 
+Each planet site can subscribe to certain tags emitted from the Supernova, make a query for full-text-search, 
+along with many other things. Basically, the supernova is an API, and each planet can make requests to it.
 
 ![ Mad Galaxy diagram ](https://raw.githubusercontent.com/madgloryint/madgalaxy/master/docs/mad_galaxy_sketch.jpg)
 
