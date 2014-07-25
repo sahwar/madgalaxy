@@ -165,11 +165,6 @@
             "author": "Vincent RABAH",
             "link": "http://www.nodejs-news.com/"
         },
-        "Estisia Development Blog": {
-            "feed": "http://dev.estisia.com/tag/nodejs/feed/",
-            "author": "Tucsok, Bika",
-            "link": "http://dev.estisia.com"
-        },
         "Createweb Blog": {
             "feed": " http://www.createweb.be/wordpress/?tag=node-js&feed=rss2",
             "author": "Elias Lecomte",

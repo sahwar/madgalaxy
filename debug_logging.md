@@ -9,6 +9,7 @@ Here are is a list of all current debug groups:
 - feedreader:elasticsearch
 - api_v1
 - router:api_v1
+- router:basic
 - taggingSystem
 - server
 
@@ -16,7 +17,7 @@ Currenlty, which debug groups that are outputted to the console is determined by
 in package.json
 ```
   "scripts": {
-    "start": "DEBUG=server,feedreader:*,api_v1,router ./node_modules/.bin/supervisor ./bin/www", <-----this line
+    "start": "DEBUG=server,feedreader:*,api_v1,router:* ./node_modules/.bin/supervisor ./bin/www", <-----this line
     "test": "./node_modules/.bin/mocha"
   },
 ```
