@@ -18,12 +18,10 @@ router.use(function (req, res, next) {
     if (req.query.pageNum) {
         req.pageNum = req.query.pageNum;
     }
-    //make this actually validate
     //validating searchString
     if (req.query.searchString) {
         req.searchString = req.query.searchString;
     }
-    //make this actually validate
     //validating searchString
     if (req.query.searchTag) {
         req.searchTag = req.query.searchTag;
@@ -93,91 +91,93 @@ router.get('/articles', function (req, res, next) {
     REST tags
  -----------------------------------------------------------------------------------------*/
 router.route('/tags')
-    //GET current tags
-    .get(function (req, res, next) {
-        debug('request for most recent tags');
-        apiV1.getCurrentTags(req.pageNum, function (err, tags) {
-            if (err) {
-                res.send(err);
-            } else {
-                res.json(tags);
-            }
-        });
-    })
-
-    .all(function (req, res, next) {
-        if(req.body.tag){
-            req.tag = req.body.tag;
-            next();
+//GET current tags
+.get(function (req, res, next) {
+    debug('request for most recent tags');
+    apiV1.getCurrentTags(req.pageNum, function (err, tags) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(tags);
         }
-        else{
-            res.json({'error':'required parameter: tag - was not set'});
-        }
-    })
-
-    //DELETE a tag
-    .delete(function (req, res, next) {
-        debug('request to delete tag: ' + req.body.tag);
-        apiV1.deleteTag(req.pageNum, req.tag, function (err, tags) {
-            if (err) {
-                res.send(err);
-            } else {
-                res.json(tags);
-            }
-        });
-    })
-
-    .all(function (req, res, next) {
-        if(req.body.tag_varients){
-            req.tag_varients = req.body.tag_varients;
-            next();
-        }
-        else{
-            res.json({'error':'required parameter: tag_varients - was not set'});
-        }
-    })
-
-    //PUT a tag
-    .put(function (req, res, next) {
-        debug('request to add tag: ' + req.tag + ' : ' + req.tag_varients);
-        var tag_to_add = new Object();
-        tag_to_add.first_level = req.tag;
-        tag_to_add.second_level = req.tag_varients.split("+");
-        apiV1.addTag(req.pageNum, tag_to_add, function (err, tags) {
-            if (err) {
-                res.send(err);
-            } else {
-                res.json(tags);
-            }
-        });
     });
+})
+
+.all(function (req, res, next) {
+    if (req.body.tag) {
+        req.tag = req.body.tag;
+        next();
+    } else {
+        res.json({
+            'error': 'required parameter: tag - was not set'
+        });
+    }
+})
+
+//DELETE a tag
+.delete(function (req, res, next) {
+    debug('request to delete tag: ' + req.body.tag);
+    apiV1.deleteTag(req.pageNum, req.tag, function (err, tags) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(tags);
+        }
+    });
+})
+
+.all(function (req, res, next) {
+    if (req.body.tag_varients) {
+        req.tag_varients = req.body.tag_varients;
+        next();
+    } else {
+        res.json({
+            'error': 'required parameter: tag_varients - was not set'
+        });
+    }
+})
+
+//PUT a tag
+.put(function (req, res, next) {
+    debug('request to add tag: ' + req.tag + ' : ' + req.tag_varients);
+    var tag_to_add = new Object();
+    tag_to_add.first_level = req.tag;
+    tag_to_add.second_level = req.tag_varients.split("+");
+    apiV1.addTag(req.pageNum, tag_to_add, function (err, tags) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(tags);
+        }
+    });
+});
 
 /**-----------------------------------------------------------------------------------------
     GET search results
  -----------------------------------------------------------------------------------------*/
 router.route('/search')
-    //validates search string
-    .all(function (req, res, next) {
-        if (req.searchString) {
-            next();
-        } else {
-            debug('ERROR - Empty searchString parameter');
-            res.json({
-                'error': 'Empty searchString parameter'
-            });
-        }
-    })
-
-    .get(function (req, res, next) {
-        debug('search for: ' + req.searchString + req.pageNum);
-        apiV1.getArticlesBySearchString(req.pageNum, req.searchString, req.query.searchTag, function (err, posts) {
-            if (err) {
-                res.send(err);
-            } else {
-                res.json(posts);
-            }
+//validates search string
+.all(function (req, res, next) {
+    if (req.searchString) {
+        next();
+    } else {
+        debug('ERROR - Empty searchString parameter');
+        res.json({
+            'error': 'Empty searchString parameter'
         });
+    }
+})
+
+.get(function (req, res, next) {
+    debug('search for: ' + req.searchString + req.pageNum);
+    apiV1.getArticlesBySearchString(req.pageNum, req.searchString, req.query.searchTag, function (err, posts) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(posts);
+        }
     });
+});
 
 
 module.exports = router;

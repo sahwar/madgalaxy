@@ -3,11 +3,6 @@ var router = express.Router();
 var debug = require('debug')('router:basic');
 
 
-//Standard convention for api callback - page, variables(if applicable), callback function
-
-/**-----------------------------------------------------------------------------------------
-    Variable validation
- -----------------------------------------------------------------------------------------*/
 router.use(function (req, res, next) {
     next();
 });

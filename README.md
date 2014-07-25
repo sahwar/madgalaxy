@@ -128,6 +128,7 @@ Here are is a list of all current debug groups:
 - api_v1
 - router:api_v1
 - router:basic
+- router:error_handler
 - taggingSystem
 - server
 
