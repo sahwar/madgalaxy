@@ -39,7 +39,7 @@ and fetches content from each source on a specified interval. It then emits cont
 source internally where each item is parsed, classified, tagged, and possibly
 scored.
 
-After that, content is categorized, indexed, and stored into MongDB + ElasticSearch. 
+After that, content is categorized, indexed, and stored into MongoDB + ElasticSearch. 
 Each planet site can subscribe to certain tags emitted from the Supernova, make a query for full-text-search, 
 along with many other things. Basically, the supernova is an API, and each planet can make requests to it.
 
