@@ -1,7 +1,7 @@
 Mad Galaxy
 ==========
 
-An api that aggregates, categorizes, and emits feeds
+An api, organized like a galaxy, that aggregates, concatenates, and emits feeds.
 
 Development
 -----------
