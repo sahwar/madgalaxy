@@ -53,30 +53,30 @@ Use
 --Articles
 
     GET /api/v1/articles - retreives the latest articles
-        acceptable parameters:
+        parameters:
             ?pageNum - Page number. 
                        Defaults to 1. 
                        Not required.
 
 
     GET /ap/v1/articles/id/:article_id - retreives article by id
-        acceptable parameters:
+        parameters:
             :article_id - _id of article. 
                           Required.
 
 
     GET /api/v1/articles/tags/:tags - Finds all articles with :tags (inclusive, not exclusive)
-        acceptable parameters:
-            :tags - A list of tags separated by +'s (example: angularjs+node). 
-                    Usable tags can be found at /api/v1/articles/tags.
-                    Required.
-            ?pageNum - Page number. 
-                       Defaults to 1. 
-                       Not required.
+        parameters:
+            :tags -     A list of tags separated by +'s (example: angularjs+node). 
+                        Usable tags can be found at /api/v1/articles/tags.
+                        Required.
+            ?pageNum -  Page number. 
+                        Defaults to 1. 
+                        Not required.
 
 
     GET /api/v1/articles/tags/untagged - Finds all articles where article.tags = []
-        acceptable parameters:
+        parameters:
             ?pageNum - Page number. 
                        Defaults to 1. 
                        Not required.
@@ -92,30 +92,30 @@ Use
 
 
     DELETE /api/v1/tags - Deletes tag 
-        acceptable parameters:
+        parameters:
             tag - The tag to be deleted.
                   Required.
 
 
     PUT /api/v1/tags - Creates a tag
-        acceptable parameters:
-            tag - The 1st level tag to be created.
-                  Required.
-            tag_varients - 2nd level tags to be associated with 1st level tag
-                  Required
+        parameters:
+            tag -           The 1st level tag to be created.
+                            Required.
+            tag_varients -  2nd level tags to be associated with 1st level tag
+                            Required
 
 
 --Search
 
     GET /api/v1/search/ - Searches for articles with ?searchString and ?searchTag
-        acceptable parameters:
+        parameters:
             ?searchString - Full text search string.
                             Required.
-            ?searchTag - Filters above search with tags separated by +'s (inclusive, not exclusive)
-                         Not Required.
-            ?pageNum - Page number. 
-                       Defaults to 1. 
-                       Not required.
+            ?searchTag -    Filters above search with tags separated by +'s (inclusive, not exclusive)
+                            Not Required.
+            ?pageNum -      Page number. 
+                            Defaults to 1. 
+                            Not required.
 
 
 
