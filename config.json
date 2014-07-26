@@ -261,7 +261,10 @@
         "api": [
             "api",
             "rest",
-            "rest-api"
+            "rest-api"  
+        ],
+        "wordpress": [
+            "wordpress"
         ]
     }
 }
