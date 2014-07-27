@@ -5,26 +5,39 @@ An api, organized like a galaxy, that aggregates, concatenates, and emits feeds.
 
 Development
 -----------
-To run this on your own machine*:
+To run this on your own machine, there are two options.
 
-__1. Install Dependencies__
-(assuming you've already installed Node.js and elasticsearch)
+The first option is to manually run mongo and node in separate terminal tabs. Here is how you do that:
 
-    npm install
+    __1. Install Dependencies__
+    (assuming you've already installed Node.js and elasticsearch)
 
-__2. Start the database dameon__
+        npm install
 
-    cd planet
-    mkdir data
-    mongod --dbpath data
+    __2. Start the database dameon__
 
-__1. Start the databse *IN NEW TAB*__
+        cd planet
+        mkdir data
+        mongod --dbpath data
 
-    mongo
+    __1. Start the databse *IN NEW TAB*__
 
-__2. Run the server *IN ANOTHER NEW TAB*__
+        mongo
 
-    npm start
+    __2. Run the server *IN ANOTHER NEW TAB*__
+
+        npm start
+
+The second option is to have grunt do everything for you (this is the preferred and easier method). Here is how you do that:
+
+    __1. Install Dependencies__
+    (assuming you've already installed Node.js and elasticsearch)
+
+        npm install
+
+    __2. Start the app__
+        grunt
+        
 
 
 Architecture
@@ -133,12 +146,25 @@ Here are is a list of all current debug groups:
 - server
 
 Currenlty, which debug groups that are outputted to the console is determined by the startup script
-in package.json
+in package.json or a task in grunt depending on how you are running the app.
+
+Here is where you configure 'debug' if you start the app with 'npm start':
 ```
+// ./package.json
   "scripts": {
     "start": "DEBUG=server,feedreader:*,api_v1,router:* ./node_modules/.bin/supervisor ./bin/www", <-----this line
     "test": "./node_modules/.bin/mocha"
   },
+```
+Here is where you configure 'debug' if you start the app with 'grunt':
+```
+// Gruntfile.js
+
+dev: {
+    NODE_ENV: 'development',
+    DEST: 'temp',
+    DEBUG: 'server,feedreader:*,api_v1,router:*' <------this line
+}
 ```
 
 If a debug group is included in the DEBUG variable, it is logged to the console, and if it is excluded,
