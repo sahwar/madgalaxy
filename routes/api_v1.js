@@ -199,7 +199,7 @@ router.route('/search')
 })
 
 .get(function (req, res, next) {
-    debug('search for: ' + req.searchString + req.pageNum);
+    debug('search for: ' + req.searchString);
     apiV1.getArticlesBySearchString(req.pageNum, req.searchString, req.query.searchTag, function (err, posts) {
         if (err) {
             res.send(err);
