@@ -31,6 +31,36 @@ router.use(function (req, res, next) {
 });
 
 /**-----------------------------------------------------------------------------------------
+    Add a tag to an article
+ -----------------------------------------------------------------------------------------*/
+router.post('/articles/id/:article_id/addTag', function (req, res, next) {
+    debug('request to add tag: ' + req.body.tag);
+    var articleId = req.params.article_id;
+    apiV1.addUserTagToArticle(req.pageNum, articleId, req.body.tag, function (err, post) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(post);
+        }
+    });
+});
+
+/**-----------------------------------------------------------------------------------------
+    DELETE a tag from an article
+ -----------------------------------------------------------------------------------------*/
+router.delete('/articles/id/:article_id/removeTag', function (req, res, next) {
+    debug('request for single article with an id of: ' + req.params.article_id);
+    var articleId = req.params.article_id;
+    apiV1.getArticleById(req.pageNum, articleId, function (err, post) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(post);
+        }
+    });
+});
+
+/**-----------------------------------------------------------------------------------------
     GET article by id
  -----------------------------------------------------------------------------------------*/
 router.get('/articles/id/:article_id', function (req, res, next) {
@@ -137,8 +167,8 @@ router.route('/tags')
     }
 })
 
-//PUT a tag
-.put(function (req, res, next) {
+//POST a tag
+.post(function (req, res, next) {
     debug('request to add tag: ' + req.tag + ' : ' + req.tag_varients);
     var tag_to_add = new Object();
     tag_to_add.first_level = req.tag;

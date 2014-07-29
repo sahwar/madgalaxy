@@ -261,10 +261,17 @@
         "api": [
             "api",
             "rest",
-            "rest-api"  
+            "rest-api"
         ],
         "wordpress": [
             "wordpress"
+        ],
+        "mongo": [
+            "mongo",
+            "mongodb"
+        ],
+        "hello": [
+            "world"
         ]
     }
 }

@@ -1,5 +1,5 @@
 // Gruntfile.js
-module.exports = function (grunt) {
+module.exports = function(grunt) {
     grunt.initConfig({
         env: {
             options: {
