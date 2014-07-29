@@ -18,6 +18,9 @@ router.use(function (req, res, next) {
     if (req.query.pageNum) {
         req.pageNum = req.query.pageNum;
     }
+    else{
+        req.pageNum = 1;
+    }
     //validating searchString
     if (req.query.searchString) {
         req.searchString = req.query.searchString;
@@ -89,12 +92,25 @@ router.get('/articles/tags/untagged', function (req, res, next) {
 });
 
 /**-----------------------------------------------------------------------------------------
-    GET articles by tags
+    GET articles/tags/:tags - gets the most recent articles with :tags
  -----------------------------------------------------------------------------------------*/
-router.get('/articles/tags/:tags', function (req, res, next) {
-    var paramsInArray = req.params.tags.split("+");
-    debug('request for articles categorized by tags: ' + paramsInArray);
-    apiV1.getArticlesByTags(req.pageNum, paramsInArray, function (err, posts) {
+router.route('/articles/tags/:tags')
+//validates searchTag
+.all(function (req, res, next) {
+    if (req.params.tags) {
+        req.tags = req.params.tags.split("+");
+        next();
+    } else {
+        debug('ERROR - Empty tags parameter');
+        res.json({
+            'error': 'Empty tags parameter'
+        });
+    }
+})
+
+.get(function (req, res, next) {
+    debug('request for articles categorized by tags: ' + req.tags);
+    apiV1.getArticlesByTags(req.pageNum, req.tags, function (err, posts) {
         if (err) {
             res.send(err);
         } else {
@@ -104,7 +120,7 @@ router.get('/articles/tags/:tags', function (req, res, next) {
 });
 
 /**-----------------------------------------------------------------------------------------
-    GET articles
+    GET articles - gets the most recent articles regardless of tags
  -----------------------------------------------------------------------------------------*/
 router.get('/articles', function (req, res, next) {
     debug('request for most recent articles');
@@ -121,7 +137,7 @@ router.get('/articles', function (req, res, next) {
     REST tags
  -----------------------------------------------------------------------------------------*/
 router.route('/tags')
-//GET current tags
+//GET current tags - sends back a list of 1st level and 2nd level tags
 .get(function (req, res, next) {
     debug('request for most recent tags');
     apiV1.getCurrentTags(req.pageNum, function (err, tags) {
@@ -144,7 +160,7 @@ router.route('/tags')
     }
 })
 
-//DELETE a tag
+//DELETE a tag - removes a 1st level tag along with its 2nd level tags
 .delete(function (req, res, next) {
     debug('request to delete tag: ' + req.body.tag);
     apiV1.deleteTag(req.pageNum, req.tag, function (err, tags) {
@@ -167,7 +183,7 @@ router.route('/tags')
     }
 })
 
-//POST a tag
+//POST a tag - injects a user specified 1st level tags along with 2nd level tags
 .post(function (req, res, next) {
     debug('request to add tag: ' + req.tag + ' : ' + req.tag_varients);
     var tag_to_add = new Object();
@@ -194,6 +210,17 @@ router.route('/search')
         debug('ERROR - Empty searchString parameter');
         res.json({
             'error': 'Empty searchString parameter'
+        });
+    }
+})
+//validates searchTag
+.all(function (req, res, next) {
+    if (req.searchTag) {
+        next();
+    } else {
+        debug('ERROR - Empty searchTag parameter');
+        res.json({
+            'error': 'Empty searchTag parameter'
         });
     }
 })
