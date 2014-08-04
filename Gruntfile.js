@@ -30,10 +30,28 @@ module.exports = function(grunt) {
             dev: {
                 script: './bin/www'
             }
+        },
+
+
+
+        notify: {
+            shell: {
+                options: {
+                    title: 'Task Complete',
+                    message: 'Started mongo'
+                }
+            },
+            nodemon: {
+                options: {
+                    title: 'Task Complete',
+                    message: 'Starting app and watching for changes'
+                }
+            }
         }
     });
+    grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-env');
     grunt.loadNpmTasks('grunt-shell-spawn');
     grunt.loadNpmTasks('grunt-nodemon');
-    grunt.registerTask('default', ['env', 'shell', 'nodemon']);
+    grunt.registerTask('default', ['notify', 'env', 'shell', 'nodemon']);
 };

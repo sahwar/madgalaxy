@@ -20,6 +20,12 @@ router.use(function(req, res, next) {
   } else {
     req.pageNum = 1;
   }
+  //validating perPage
+  if (req.query.perPage) {
+    req.perPage = req.query.perPage;
+  } else {
+    req.perPage = 10;
+  }
   //validating searchString
   if (req.query.searchString) {
     req.searchString = req.query.searchString;
@@ -78,7 +84,7 @@ router.use(function(req, res, next) {
 router.get('/articles/id/:article_id', function(req, res, next) {
   debug('request for single article with an id of: ' + req.params.article_id);
   var articleId = req.params.article_id;
-  apiV1.getArticleById(req.pageNum, articleId, function(err, post) {
+  apiV1.getArticleById(req.pageNum, req.perPage, articleId, function(err, post) {
     if (err) {
       res.send(err);
     } else {
@@ -91,7 +97,8 @@ router.get('/articles/id/:article_id', function(req, res, next) {
     GET untagged articles
  -----------------------------------------------------------------------------------------*/
 router.get('/articles/tags/untagged', function(req, res, next) {
-  apiV1.getUntaggedArticles(req.pageNum, function(err, posts) {
+  console.log(req.perPage);
+  apiV1.getUntaggedArticles(req.pageNum, req.perPage, function(err, posts) {
     if (err) {
       res.send(err);
     } else {
@@ -119,7 +126,7 @@ router.route('/articles/tags/:tags')
 
 .get(function(req, res, next) {
   debug('request for articles categorized by tags: ' + req.tags);
-  apiV1.getArticlesByTags(req.pageNum, req.tags, function(err, posts) {
+  apiV1.getArticlesByTags(req.pageNum, req.perPage, req.tags, function(err, posts) {
     if (err) {
       res.send(err);
     } else {
@@ -133,7 +140,7 @@ router.route('/articles/tags/:tags')
  -----------------------------------------------------------------------------------------*/
 router.get('/articles', function(req, res, next) {
   debug('request for most recent articles');
-  apiV1.getMostRecentArticles(req.pageNum, function(err, posts) {
+  apiV1.getMostRecentArticles(req.pageNum, req.perPage, function(err, posts) {
     if (err) {
       res.send(err);
     } else {
@@ -149,7 +156,7 @@ router.route('/tags')
 //GET current tags - sends back a list of 1st level and 2nd level tags
 .get(function(req, res, next) {
   debug('request for most recent tags');
-  apiV1.getCurrentTags(req.pageNum, function(err, tags) {
+  apiV1.getCurrentTags(req.pageNum, req.perPage, function(err, tags) {
     if (err) {
       res.send(err);
     } else {
@@ -172,7 +179,7 @@ router.route('/tags')
 //DELETE a tag - removes a 1st level tag along with its 2nd level tags
 .delete(function(req, res, next) {
   debug('request to delete tag: ' + req.body.tag);
-  apiV1.deleteTag(req.pageNum, req.tag, function(err, tags) {
+  apiV1.deleteTag(req.pageNum, req.perPage, req.tag, function(err, tags) {
     if (err) {
       res.send(err);
     } else {
@@ -198,7 +205,7 @@ router.route('/tags')
   var tag_to_add = new Object();
   tag_to_add.first_level = req.tag;
   tag_to_add.second_level = req.tag_varients.split("+");
-  apiV1.addTag(req.pageNum, tag_to_add, function(err, tags) {
+  apiV1.addTag(req.pageNum, req.perPage, tag_to_add, function(err, tags) {
     if (err) {
       res.send(err);
     } else {
@@ -236,7 +243,7 @@ router.route('/search')
 
 .get(function(req, res, next) {
   debug('search for: ' + req.searchString);
-  apiV1.getArticlesBySearchString(req.pageNum, req.searchString, req.searchTag, function(err, posts) {
+  apiV1.getArticlesBySearchString(req.pageNum, req.perPage, req.searchString, req.searchTag, function(err, posts) {
     if (err) {
       res.send(err);
     } else {
