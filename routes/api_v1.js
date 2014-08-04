@@ -32,35 +32,45 @@ router.use(function(req, res, next) {
   next();
 });
 
-/**-----------------------------------------------------------------------------------------
-    Add a tag to an article
- -----------------------------------------------------------------------------------------*/
-router.post('/articles/id/:article_id/addTag', function(req, res, next) {
-  debug('request to add tag: ' + req.body.tag);
-  var articleId = req.params.article_id;
-  apiV1.addUserTagToArticle(req.pageNum, articleId, req.body.tag, function(err, post) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(post);
-    }
-  });
-});
+// /**-----------------------------------------------------------------------------------------
+//     Add a tag to an article
+//  -----------------------------------------------------------------------------------------*/
+// router.route('/articles/id/:article_id/addTag')
 
-/**-----------------------------------------------------------------------------------------
-    DELETE a tag from an article
- -----------------------------------------------------------------------------------------*/
-router.delete('/articles/id/:article_id/removeTag', function(req, res, next) {
-  debug('request for single article with an id of: ' + req.params.article_id);
-  var articleId = req.params.article_id;
-  apiV1.getArticleById(req.pageNum, articleId, function(err, post) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.json(post);
-    }
-  });
-});
+// .all(function(req, res, next) {
+//   if(req.body.tag == ''){
+//     next('required parameter: tag - was not set')
+//   }else{
+//     next();
+//   }
+// })
+// .post(function(req, res, next) {
+
+//   debug('request to add tag: ' + req.body.tag);
+//   var articleId = req.params.article_id;
+//   apiV1.addUserTagToArticle(req.pageNum, articleId, req.body.tag, function(err, post) {
+//     if (err) {
+//       res.send(err);
+//     } else {
+//       res.json(post);
+//     }
+//   });
+// });
+
+// /**-----------------------------------------------------------------------------------------
+//     DELETE a tag from an article
+//  -----------------------------------------------------------------------------------------*/
+// router.delete('/articles/id/:article_id/removeTag', function(req, res, next) {
+//   debug('request for single article with an id of: ' + req.params.article_id);
+//   var articleId = req.params.article_id;
+//   apiV1.getArticleById(req.pageNum, articleId, function(err, post) {
+//     if (err) {
+//       res.send(err);
+//     } else {
+//       res.json(post);
+//     }
+//   });
+// });
 
 /**-----------------------------------------------------------------------------------------
     GET article by id
@@ -226,7 +236,7 @@ router.route('/search')
 
 .get(function(req, res, next) {
   debug('search for: ' + req.searchString);
-  apiV1.getArticlesBySearchString(req.pageNum, req.searchString, req.query.searchTag, function(err, posts) {
+  apiV1.getArticlesBySearchString(req.pageNum, req.searchString, req.searchTag, function(err, posts) {
     if (err) {
       res.send(err);
     } else {
