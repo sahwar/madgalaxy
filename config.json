@@ -184,6 +184,81 @@
       "feed": "http://www.joyent.com/blog/feed",
       "author": "Joyent",
       "link": "http://www.joyent.com/blog"
+    },
+    "Firebase Blog": {
+      "feed": "https://www.firebase.com/feed.xml",
+      "author": "Firebase",
+      "link": "https://www.firebase.com/blog/"
+    },
+    "Reddit - EmberJS": {
+      "feed": "http://www.reddit.com/r/emberjs/.rss",
+      "author": "Reddit",
+      "link": "http://www.reddit.com/r/emberjs/"
+    },
+    "Kinvey Blog": {
+      "feed": "http://feeds.feedburner.com/kinvey",
+      "author": "Kinvey",
+      "link": "http://www.kinvey.com/blog"
+    },
+    "Crowd Interactive Blog": {
+      "feed": "http://feeds.feedburner.com/CrowdInteractiveTechBlog",
+      "author": "Crowd Interactive",
+      "link": "blog.crowdint.com"
+    },
+    "Tenxer Blog": {
+      "feed": "http://blog.tenxer.com/feed/",
+      "author": "Tenxer",
+      "link": "http://blog.tenxer.com"
+    },
+    "Ugisozols Blog": {
+      "feed": "http://ugisozols.com/atom.xml",
+      "author": "Ugisozols",
+      "link": "http://ugisozols.com"
+    },
+    "StackOverflow EmberJS Feed": {
+      "feed": "https://stackoverflow.com/feeds/tag?tagnames=ember.js&sort=newest",
+      "author": "Multiple Authors",
+      "link": "https://stackoverflow.com/questions/tagged/ember.js"
+    },
+    "LaSolution.be": {
+      "feed": "http://www.lasolution.be/blog/latest/",
+      "author": "Multiple Authors",
+      "link": "http://www.lasolution.be/"
+    },
+    "TeraData Developer Blog": {
+      "feed": "http://developer.teradata.com/blog/rss.xml",
+      "author": "Multiple Authors",
+      "link": "http://developer.teradata.com/blog/"
+    },
+    "42 Floors Blog": {
+      "feed": "http://blog.42floors.com/feed/",
+      "author": "Multiple Authors",
+      "link": "http://blog.42floors.com"
+    },
+    "JavaScript Sexy Blog": {
+      "feed": "http://javascriptissexy.com/feed/",
+      "author": "Multiple Authors",
+      "link": "http://javascriptissexy.com"
+    },
+    "Alex Bachuk Blog": {
+      "feed": "http://alexbachuk.com/feed/",
+      "author": "Alex Bachuk",
+      "link": "http://alexbachuk.com"
+    },
+    "Coenraets Blog": {
+      "feed": "http://coenraets.org/blog/feed/",
+      "author": "Christophe Coenraets",
+      "link": "http://coenraets.org/blog"
+    },
+    "SoudCloud Developer Blog": {
+      "feed": "https://developers.soundcloud.com/blog.rss",
+      "author": "Multiple Authors",
+      "link": "https://developers.soundcloud.com/blog"
+    },
+    "Pusher Blog": {
+      "feed": "http://feeds.feedburner.com/pusherb",
+      "author": "Multiple Authors",
+      "link": "http://blog.pusher.com"
     }
   },
   "tags": {
@@ -202,7 +277,8 @@
     ],
     "backbonejs": [
       "backbone",
-      "backbonejs"
+      "backbonejs",
+      "mvc"
     ],
     "underscorejs": [
       "underscore",
@@ -210,7 +286,8 @@
     ],
     "emberjs": [
       "emberjs",
-      "ember"
+      "ember",
+      "mvc"
     ],
     "jquery": [
       "jquery",
