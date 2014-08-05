@@ -79,6 +79,21 @@ router.use(function(req, res, next) {
 // });
 
 /**-----------------------------------------------------------------------------------------
+    GET increase article views by 1
+ -----------------------------------------------------------------------------------------*/
+router.get('/articles/id/:article_id/upview', function(req, res, next) {
+  debug('increasing views by 1 of article: ' + req.params.article_id);
+  var articleId = req.params.article_id;
+  apiV1.increaseArticleViews(req.pageNum, req.perPage, articleId, function(err) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json({'success' : 'increased view count'});
+    }
+  });
+});
+
+/**-----------------------------------------------------------------------------------------
     GET article by id
  -----------------------------------------------------------------------------------------*/
 router.get('/articles/id/:article_id', function(req, res, next) {
