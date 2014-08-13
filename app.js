@@ -1,4 +1,5 @@
 var express = require('express');
+var cors = require('cors');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
@@ -22,6 +23,8 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.use(cors()); //this allows cross-domain requests
 app.use('/api/v1', routes_api_v1); //all routes for /api/v1
 app.use('/', basic_routes); //any other route
 app.use('', error_handler_routes); //if not routed by above handlers, throw an error

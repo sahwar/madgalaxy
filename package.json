@@ -26,7 +26,8 @@
     "mongoose": ">=3.8.9",
     "mongoosastic": "*",
     "elasticsearch": "*",
-    "rss": "*"
+    "rss": "*",
+    "cors", "*"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
