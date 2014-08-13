@@ -4,9 +4,16 @@ var feedreader = require('../lib/feedreader.js');
 var apiV1 = require('../lib/api_v1.js');
 var pageNum = 1; // this is multiplied by 'perPage', a variable defined in api...js, to determine how many articles are skipped
 var debug = require('debug')('router:api_v1');
-
-
 //Standard convention for api callback - page, variables(if applicable), callback(err, result)
+
+
+
+//This allows cross-domain requests
+app.all('/', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
 
 /**-----------------------------------------------------------------------------------------
     Variable validation
