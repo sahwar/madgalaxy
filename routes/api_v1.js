@@ -4,17 +4,9 @@ var feedreader = require('../lib/feedreader.js');
 var apiV1 = require('../lib/api_v1.js');
 var pageNum = 1; // this is multiplied by 'perPage', a variable defined in api...js, to determine how many articles are skipped
 var debug = require('debug')('router:api_v1');
+
+
 //Standard convention for api callback - page, variables(if applicable), callback(err, result)
-
-
-
-//This allows cross-domain requests
-router.use('/', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
 
 /**-----------------------------------------------------------------------------------------
     Variable validation
@@ -246,17 +238,17 @@ router.route('/search')
     });
   }
 })
-//validates searchTag
-.all(function(req, res, next) {
-  if (req.searchTag) {
-    next();
-  } else {
-    debug('ERROR - Empty searchTag parameter');
-    res.json({
-      'error': 'Empty searchTag parameter'
-    });
-  }
-})
+// //validates searchTag
+// .all(function(req, res, next) {
+//   if (req.searchTag) {
+//     next();
+//   } else {
+//     debug('ERROR - Empty searchTag parameter');
+//     res.json({
+//       'error': 'Empty searchTag parameter'
+//     });
+//   }
+// })
 
 .get(function(req, res, next) {
   debug('search for: ' + req.searchString);
