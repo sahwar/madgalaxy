@@ -170,11 +170,6 @@
       "author": "Francois Marier",
       "link": "http://feeding.cloud.geek.nz/"
     },
-    "StrongLoop": {
-      "feed": "http://strongloop.com/feed/",
-      "author": "Strong Loop",
-      "link": "strongloop.com"
-    },
     "Joyent Blog": {
       "feed": "http://www.joyent.com/blog/feed",
       "author": "Joyent",
