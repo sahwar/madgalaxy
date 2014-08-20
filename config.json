@@ -30,11 +30,6 @@
       "author": "Thomas Davis",
       "link": "http://backbonetutorials.com/"
     },
-    "StackOverflow Backbone feed": {
-      "feed": "https://stackoverflow.com/feeds/tag?tagnames=backbone.js&sort=votes",
-      "author": "StackOverflow",
-      "link": "https://stackoverflow.com/questions/tagged/backbone.js"
-    },
     "ShineTech Blog": {
       "feed": "http://blog.shinetech.com/feed/",
       "author": "Shine Technologies",
@@ -214,11 +209,6 @@
       "feed": "http://ugisozols.com/atom.xml",
       "author": "Ugisozols",
       "link": "http://ugisozols.com"
-    },
-    "StackOverflow EmberJS Feed": {
-      "feed": "https://stackoverflow.com/feeds/tag?tagnames=ember.js&sort=newest",
-      "author": "Multiple Authors",
-      "link": "https://stackoverflow.com/questions/tagged/ember.js"
     },
     "LaSolution.be": {
       "feed": "http://www.lasolution.be/blog/latest/",
