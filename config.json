@@ -65,20 +65,10 @@
       "author": "Nebulab",
       "link": "http://nebulab.it/blog"
     },
-    "Jquery Blog": {
-      "feed": "http://www.learningjquery.com/feed",
-      "author": "Learning JQuery",
-      "link": "http://www.learningjquery.com/"
-    },
     "JQuery UI Blog": {
       "feed": "http://blog.jqueryui.com/feed/",
       "author": "JQuery UI",
       "link": "http://jqueryui.com/"
-    },
-    "JQuery Style": {
-      "feed": "http://feeds.feedburner.com/JqueryStyleAll",
-      "author": "JQuery Style",
-      "link": "http://jquerystyle.com/index.php"
     },
     "JQuery By Example": {
       "feed": "http://feeds.feedburner.com/JqueryByExample",
@@ -115,65 +105,20 @@
       "author": "Bocoup",
       "link": "http://weblog.bocoup.com"
     },
-    "NodeConf Videos": {
-      "feed": "http://blip.tv/rss/bookmarks/234675",
-      "author": "NodeConf",
-      "link": "http://blip.tv/jsconf"
-    },
     "Labnotes": {
       "feed": "http://labnotes.org/feed/atom/",
       "author": "Assaf Arkin",
       "link": "http://labnotes.org/"
-    },
-    "CurlyBraceCast": {
-      "feed": "http://www.curlybracecast.com/itunes.rss",
-      "author": "Mikeal Rogers",
-      "link": "http://www.curlybracecast.com/"
-    },
-    "Shape Shed": {
-      "feed": "http://feeds.shapeshed.com/shapeshed",
-      "author": "George Ornbo",
-      "link": "http://shapeshed.com/"
-    },
-    "catonmat": {
-      "feed": "http://www.catonmat.net/feed/",
-      "author": "Peteris Krumins",
-      "link": "http://www.catonmat.net"
-    },
-    "Asynchronous Thoughts": {
-      "feed": "http://robkuz-blog.blogspot.com/feeds/posts/default",
-      "author": "robert kuzelj",
-      "link": "http://robkuz-blog.blogspot.com/"
-    },
-    "Development Seed": {
-      "feed": "http://developmentseed.org/blog/nodejs.rss/",
-      "author": "Development Seed",
-      "link": "http://developmentseed.org"
-    },
-    "NodeJS News": {
-      "feed": "http://www.nodejs-news.com/feed/",
-      "author": "Vincent RABAH",
-      "link": "http://www.nodejs-news.com/"
     },
     "Createweb Blog": {
       "feed": " http://www.createweb.be/wordpress/?tag=node-js&feed=rss2",
       "author": "Elias Lecomte",
       "link": "http://www.createweb.be/wordpress/?tag=node-js"
     },
-    "Max Ogden": {
-      "feed": "http://maxogden.com/rss",
-      "author": "Max Ogden",
-      "link": "http://maxogden.com"
-    },
     "Feeding the Cloud": {
       "feed": "http://feeding.cloud.geek.nz/feeds/posts/default/-/nodejs",
       "author": "Francois Marier",
       "link": "http://feeding.cloud.geek.nz/"
-    },
-    "Joyent Blog": {
-      "feed": "http://www.joyent.com/blog/feed",
-      "author": "Joyent",
-      "link": "http://www.joyent.com/blog"
     },
     "Firebase Blog": {
       "feed": "https://www.firebase.com/feed.xml",
@@ -220,11 +165,6 @@
       "author": "Multiple Authors",
       "link": "http://blog.42floors.com"
     },
-    "JavaScript Sexy Blog": {
-      "feed": "http://javascriptissexy.com/feed/",
-      "author": "Multiple Authors",
-      "link": "http://javascriptissexy.com"
-    },
     "Alex Bachuk Blog": {
       "feed": "http://alexbachuk.com/feed/",
       "author": "Alex Bachuk",
@@ -234,16 +174,6 @@
       "feed": "http://coenraets.org/blog/feed/",
       "author": "Christophe Coenraets",
       "link": "http://coenraets.org/blog"
-    },
-    "SoudCloud Developer Blog": {
-      "feed": "https://developers.soundcloud.com/blog.rss",
-      "author": "Multiple Authors",
-      "link": "https://developers.soundcloud.com/blog"
-    },
-    "Pusher Blog": {
-      "feed": "http://feeds.feedburner.com/pusherb",
-      "author": "Multiple Authors",
-      "link": "http://blog.pusher.com"
     }
   },
   "tags": {
