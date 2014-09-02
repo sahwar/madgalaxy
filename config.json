@@ -259,6 +259,11 @@
       "feed": "http://feeds.feedburner.com/pusherb",
       "author": "Multiple Authors",
       "link": "http://blog.pusher.com"
+    },
+    "Todd Moto's Blog": {
+      "feed": "http://toddmotto.com/feed.xml",
+      "author": "Todd Moto",
+      "link": "http://toddmotto.com/"
     }
   },
   "tags": {
