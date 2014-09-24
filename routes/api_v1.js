@@ -238,17 +238,17 @@ router.route('/search')
     });
   }
 })
-// //validates searchTag
-// .all(function(req, res, next) {
-//   if (req.searchTag) {
-//     next();
-//   } else {
-//     debug('ERROR - Empty searchTag parameter');
-//     res.json({
-//       'error': 'Empty searchTag parameter'
-//     });
-//   }
-// })
+//validates searchTag
+.all(function(req, res, next) {
+  if (req.searchTag) {
+    next();
+  } else {
+    debug('ERROR - Empty searchTag parameter');
+    res.json({
+      'error': 'Empty searchTag parameter'
+    });
+  }
+})
 
 .get(function(req, res, next) {
   debug('search for: ' + req.searchString);
