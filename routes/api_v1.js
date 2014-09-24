@@ -32,7 +32,7 @@ router.use(function(req, res, next) {
   }
   //validating searchString
   if (req.query.searchTag) {
-    req.searchTag = req.query.searchTag;
+    req.searchTag = req.query.searchTag.split("+");;
   }
 
   next();
@@ -252,7 +252,7 @@ router.route('/search')
 
 .get(function(req, res, next) {
   debug('search for: ' + req.searchString);
-  apiV1.getArticlesBySearchString(req.pageNum, req.perPage, req.searchString, req.searchTag, function(err, posts) {
+  apiV1.getArticlesBySearchString(req.pageNum, req.perPage, req.searchString, Array(req.searchTag), function(err, posts) {
     if (err) {
       res.send(err);
     } else {
