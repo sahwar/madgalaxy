@@ -195,6 +195,7 @@
     "node": [
       "node",
       "nodejs",
+      "node.js",
       "nodeconf"
     ],
     "npm": [
