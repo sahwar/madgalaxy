@@ -1,10 +1,5 @@
 {
   "feeds": {
-    "AngularJS Daily": {
-      "feed": "http://www.angularjsdaily.com/~api/papers/b172848e-2741-468a-b631-2a6fb575b197/rss",
-      "author": "AngularJS Daily",
-      "link": "http://www.angularjsdaily.com/"
-    },
     "Angular-tips": {
       "feed": "http://angular-tips.com/atom.xml",
       "author": "Angular-Tips",
