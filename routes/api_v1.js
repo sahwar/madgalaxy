@@ -32,7 +32,7 @@ router.use(function(req, res, next) {
   }
   //validating searchString
   if (req.query.searchTag) {
-    req.searchTag = req.query.searchTag;
+    req.searchTag = req.query.searchTag.split("+");;
   }
 
   next();
@@ -238,21 +238,21 @@ router.route('/search')
     });
   }
 })
-// //validates searchTag
-// .all(function(req, res, next) {
-//   if (req.searchTag) {
-//     next();
-//   } else {
-//     debug('ERROR - Empty searchTag parameter');
-//     res.json({
-//       'error': 'Empty searchTag parameter'
-//     });
-//   }
-// })
+//validates searchTag
+.all(function(req, res, next) {
+  if (req.searchTag) {
+    next();
+  } else {
+    debug('ERROR - Empty searchTag parameter');
+    res.json({
+      'error': 'Empty searchTag parameter'
+    });
+  }
+})
 
 .get(function(req, res, next) {
   debug('search for: ' + req.searchString);
-  apiV1.getArticlesBySearchString(req.pageNum, req.perPage, req.searchString, req.searchTag, function(err, posts) {
+  apiV1.getArticlesBySearchString(req.pageNum, req.perPage, req.searchString, Array(req.searchTag), function(err, posts) {
     if (err) {
       res.send(err);
     } else {
