@@ -6,7 +6,7 @@ module.exports = function(grunt) {
                 //Shared Options Hash
             },
             dev: {
-                BONSAI_URL: "https://41gtgqrs:zcfwxb0h8fs9xqy7@smoke-9606326.us-east-1.bonsai.io:443/",
+                BONSAI_URL: "ENTER BONSAI URL HERE",
                 NODE_ENV: 'development',
                 DEST: 'temp',
                 DEBUG: 'server,feedreader:*,api_v1,router:*'
