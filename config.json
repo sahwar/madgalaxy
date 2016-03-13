@@ -184,6 +184,11 @@
       "feed": "http://toddmotto.com/feed.xml",
       "author": "Todd Moto",
       "link": "http://toddmotto.com/"
+    },
+    "Codementor Node.js Tutorials": {
+      "feed": "https://www.codementor.io/nodejs/tutorial/feed",
+      "author": "Multiple Authors",
+      "link": "https://www.codementor.io/nodejs/tutorial/"
     }
   },
   "tags": {
